@@ -13,8 +13,7 @@ __pycache__/
 *.pyc
 
 # Dados e arquivos CSV
-*.csv
-csv/
+csv/*.csv
 
 # Configuração de IDEs e editores de texto
 .vscode/
