@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: agg_locations_risk_score
+    columns:
+      - name: location_region
+        tests:
+          - accepted_values:
+              values: ['North America', 'South America', 'Asia', 'Africa', 'Europe']
+              name: locations
+              config:
+                severity: warn

@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: credit_fraud
+    database: localiza_dw
+    schema: dm_credit_operations_stage
+    tables:
+        - name: raw_credit_fraud
+  - name: vendas
+    database: localiza_dw
+    schema: dm_sales
+    tables:
+      - name: eventos_vendas
+      - name: dim_vendedor

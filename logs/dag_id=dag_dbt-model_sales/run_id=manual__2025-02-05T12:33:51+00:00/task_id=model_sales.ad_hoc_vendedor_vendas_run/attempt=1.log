@@ -1,0 +1,45 @@
+[2025-02-05T12:34:58.163+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T12:34:58.187+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.ad_hoc_vendedor_vendas_run manual__2025-02-05T12:33:51+00:00 [queued]>
+[2025-02-05T12:34:58.200+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.ad_hoc_vendedor_vendas_run manual__2025-02-05T12:33:51+00:00 [queued]>
+[2025-02-05T12:34:58.201+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T12:34:58.219+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtRunLocalOperator): model_sales.ad_hoc_vendedor_vendas_run> on 2025-02-05 12:33:51+00:00
+[2025-02-05T12:34:58.227+0000] {standard_task_runner.py:63} INFO - Started process 3384 to run task
+[2025-02-05T12:34:58.230+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_sales', 'model_sales.ad_hoc_vendedor_vendas_run', 'manual__2025-02-05T12:33:51+00:00', '--job-id', '104', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_sales.py', '--cfg-path', '/tmp/tmpigbfj_fb']
+[2025-02-05T12:34:58.232+0000] {standard_task_runner.py:91} INFO - Job 104: Subtask model_sales.ad_hoc_vendedor_vendas_run
+[2025-02-05T12:34:58.312+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_sales.model_sales.ad_hoc_vendedor_vendas_run manual__2025-02-05T12:33:51+00:00 [running]> on host 98025f4a542d
+[2025-02-05T12:34:58.454+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_sales' AIRFLOW_CTX_TASK_ID='model_sales.ad_hoc_vendedor_vendas_run' AIRFLOW_CTX_EXECUTION_DATE='2025-02-05T12:33:51+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-05T12:33:51+00:00'
+[2025-02-05T12:34:58.457+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T12:35:00.324+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T12:35:00.326+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmp3734t3cn from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T12:35:00.334+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_sales__model_sales/target/partial_parse.msgpack
+[2025-02-05T12:35:00.342+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T12:35:00.353+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T12:35:00.355+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf/profiles.yml.
+[2025-02-05T12:35:00.356+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['run', '--vars', '{"PROD_1": P003,                                 "PROD_2": P002,                                 "DATA_INICIO": 1999-01-01,                                 "DATA_FIM": 2025-02-05}', '--models', 'ad_hoc_vendedor_vendas', '--project-dir', '/tmp/tmp3734t3cn', '--profiles-dir', '/tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf', '--profile', '***', '--target', 'prod']
+ in /tmp/tmp3734t3cn
+[2025-02-05T12:35:00.389+0000] {logging_mixin.py:188} INFO - 12:35:00  Running with dbt=1.6.1
+[2025-02-05T12:35:00.581+0000] {logging_mixin.py:188} INFO - 12:35:00  Registered adapter: postgres=1.6.1
+[2025-02-05T12:35:01.509+0000] {logging_mixin.py:188} INFO - 12:35:01  Found 5 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T12:35:01.513+0000] {logging_mixin.py:188} INFO - 12:35:01
+[2025-02-05T12:35:01.621+0000] {logging_mixin.py:188} INFO - 12:35:01  Concurrency: 1 threads (target='prod')
+[2025-02-05T12:35:01.623+0000] {logging_mixin.py:188} INFO - 12:35:01
+[2025-02-05T12:35:01.628+0000] {logging_mixin.py:188} INFO - 12:35:01  1 of 1 START sql table model dm_sales.ad_hoc_vendedor_vendas ................... [RUN]
+[2025-02-05T12:35:01.772+0000] {logging_mixin.py:188} INFO - 12:35:01  1 of 1 OK created sql table model dm_sales.ad_hoc_vendedor_vendas .............. [SELECT 4 in 0.14s]
+[2025-02-05T12:35:01.790+0000] {logging_mixin.py:188} INFO - 12:35:01
+[2025-02-05T12:35:01.792+0000] {logging_mixin.py:188} INFO - 12:35:01  Finished running 1 table model in 0 hours 0 minutes and 0.28 seconds (0.28s).
+[2025-02-05T12:35:01.807+0000] {logging_mixin.py:188} INFO - 12:35:01
+[2025-02-05T12:35:01.809+0000] {logging_mixin.py:188} INFO - 12:35:01  Completed successfully
+[2025-02-05T12:35:01.810+0000] {logging_mixin.py:188} INFO - 12:35:01
+[2025-02-05T12:35:01.812+0000] {logging_mixin.py:188} INFO - 12:35:01  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-02-05T12:35:02.632+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T12:35:02.686+0000] {local.py:494} INFO - Inlets: []
+[2025-02-05T12:35:02.688+0000] {local.py:495} INFO - Outlets: [Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_sales.ad_hoc_vendedor_vendas', extra=None)]
+[2025-02-05T12:35:02.689+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T12:35:02.690+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T12:35:02.710+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_sales to None, run_after=None
+[2025-02-05T12:35:02.753+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T12:35:02.784+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_sales, task_id=model_sales.ad_hoc_vendedor_vendas_run, run_id=manual__2025-02-05T12:33:51+00:00, execution_date=20250205T123351, start_date=20250205T123458, end_date=20250205T123502
+[2025-02-05T12:35:03.115+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T12:35:03.140+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T12:35:03.143+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

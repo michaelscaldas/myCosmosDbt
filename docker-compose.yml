@@ -1,0 +1,124 @@
+version: '3.9'
+
+services:
+  postgres-db:
+    image: postgres:13
+    container_name: db_localiza
+    environment:
+      POSTGRES_USER: localiza_dw
+      POSTGRES_PASSWORD: localiza_dw
+      POSTGRES_DB: localiza_dw
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U localiza_dw" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+    volumes:
+      - type: tmpfs
+        target: /var/lib/postgresql/data
+      - ./csv:/data
+    networks:
+      - airflow_network
+
+  airflow-db:
+    image: postgres:13
+    container_name: airflow-db
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U airflow" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+    networks:
+      - airflow_network
+
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: airflow-webserver
+    environment:
+      - AIRFLOW__WEBSERVER__UPDATE_FAB_PERMISSIONS=True
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-db:5432/airflow
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__LOGGING__LOGGING_LEVEL=DEBUG
+      - AIRFLOW__WEBSERVER__SECRET_KEY=iN4bXsI84pSi1_Nlq62pmU5KT4BoVIR9u2UEGJ1HRQc
+      - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
+      - AIRFLOW__WEBSERVER__AUTO_REFRESH_INTERVAL=5
+      - AIRFLOW__WEBSERVER__DAG_RUN_PAGE_REFRESH_INTERVAL=2
+      - AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL=10
+      - AIRFLOW__LOGGING__LOG_RETENTION=30
+      - AIRFLOW__LOGGING__TASK_LOG_READER=task
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    depends_on:
+      airflow-db:
+        condition: service_healthy
+      postgres-db:
+        condition: service_healthy
+
+    command: >
+      bash -c "airflow db init &&
+               airflow db migrate &&
+               airflow users create -u admin -p admin -f Admin -l User -r Admin -e admin@example.com &&
+               airflow connections add localiza_dw --conn-json '{
+                       \"conn_type\": \"postgres\",
+                       \"host\": \"postgres-db\",
+                       \"login\": \"localiza_dw\",
+                       \"password\": \"localiza_dw\",
+                       \"schema\": \"localiza_dw\",
+                       \"port\": 5432
+                     }' &&
+               airflow webserver"
+
+    volumes:
+      - ./dags:/usr/local/airflow/dags
+      - ./logs:/usr/local/airflow/logs
+    networks:
+      - airflow_network
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: airflow-scheduler
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-db:5432/airflow
+      - AIRFLOW__WEBSERVER__SECRET_KEY=iN4bXsI84pSi1_Nlq62pmU5KT4BoVIR9u2UEGJ1HRQc
+      - AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL=10
+      - AIRFLOW__WEBSERVER__AUTO_REFRESH_INTERVAL=5
+      - AIRFLOW__WEBSERVER__DAG_RUN_PAGE_REFRESH_INTERVAL=2
+      - AIRFLOW__LOGGING__LOG_RETENTION=30
+    depends_on:
+      airflow-webserver:
+        condition: service_healthy
+    command: >
+      bash -c "
+       airflow scheduler"
+    volumes:
+      - ./dags:/usr/local/airflow/dags
+      - ./logs:/usr/local/airflow/logs
+    networks:
+      - airflow_network
+
+networks:
+  airflow_network:
+    name: airflow_network
+    driver: bridge

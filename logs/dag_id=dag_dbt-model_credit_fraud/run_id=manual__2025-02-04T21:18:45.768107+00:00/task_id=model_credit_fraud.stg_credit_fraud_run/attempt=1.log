@@ -1,0 +1,67 @@
+[2025-02-04T21:18:49.219+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-04T21:18:49.232+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.stg_credit_fraud_run manual__2025-02-04T21:18:45.768107+00:00 [queued]>
+[2025-02-04T21:18:49.239+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.stg_credit_fraud_run manual__2025-02-04T21:18:45.768107+00:00 [queued]>
+[2025-02-04T21:18:49.240+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-04T21:18:49.250+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtRunLocalOperator): model_credit_fraud.stg_credit_fraud_run> on 2025-02-04 21:18:45.768107+00:00
+[2025-02-04T21:18:49.255+0000] {standard_task_runner.py:63} INFO - Started process 70 to run task
+[2025-02-04T21:18:49.257+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_credit_fraud', 'model_credit_fraud.stg_credit_fraud_run', 'manual__2025-02-04T21:18:45.768107+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_fraud_credit.py', '--cfg-path', '/tmp/tmpdhv3dxaw']
+[2025-02-04T21:18:49.258+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask model_credit_fraud.stg_credit_fraud_run
+[2025-02-04T21:18:49.298+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.stg_credit_fraud_run manual__2025-02-04T21:18:45.768107+00:00 [running]> on host bcddf0cf9699
+[2025-02-04T21:18:49.357+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_credit_fraud' AIRFLOW_CTX_TASK_ID='model_credit_fraud.stg_credit_fraud_run' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T21:18:45.768107+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-04T21:18:45.768107+00:00'
+[2025-02-04T21:18:49.358+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-04T21:18:51.037+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-04T21:18:51.038+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmpd1wigl2b from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-04T21:18:51.042+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_credit_fraud__model_credit_fraud/target/partial_parse.msgpack
+[2025-02-04T21:18:51.047+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-04T21:18:51.054+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-04T21:18:51.056+0000] {base.py:244} INFO - Using real values for profile ***
+[2025-02-04T21:18:51.058+0000] {config.py:335} INFO - Profile not found in cache storing and using profile: /tmp/cosmos/profile/bc2527c14f73dada0b7533018bd9d59db746e36e9a7e3ac5f884288d66c33240/profiles.yml.
+[2025-02-04T21:18:51.059+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['run', '--models', 'stg_credit_fraud', '--project-dir', '/tmp/tmpd1wigl2b', '--profiles-dir', '/tmp/cosmos/profile/bc2527c14f73dada0b7533018bd9d59db746e36e9a7e3ac5f884288d66c33240', '--profile', '***', '--target', 'prod']
+ in /tmp/tmpd1wigl2b
+[2025-02-04T21:18:51.075+0000] {logging_mixin.py:188} INFO - 21:18:51  Running with dbt=1.6.1
+[2025-02-04T21:18:51.167+0000] {logging_mixin.py:188} INFO - 21:18:51  Registered adapter: postgres=1.6.1
+[2025-02-04T21:18:51.190+0000] {logging_mixin.py:188} INFO - 21:18:51  Unable to do partial parsing because profile has changed
+[2025-02-04T21:18:51.191+0000] {logging_mixin.py:188} INFO - 21:18:51  Unable to do partial parsing because env vars used in profiles.yml have changed
+[2025-02-04T21:18:51.985+0000] {logging_mixin.py:188} INFO - 21:18:51  [WARNING]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.***.example
+[2025-02-04T21:18:51.997+0000] {logging_mixin.py:188} INFO - 21:18:51  Found 3 models, 1 snapshot, 5 tests, 1 source, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-04T21:18:51.999+0000] {logging_mixin.py:188} INFO - 21:18:51
+[2025-02-04T21:18:52.043+0000] {logging_mixin.py:188} INFO - 21:18:52
+[2025-02-04T21:18:52.044+0000] {logging_mixin.py:188} INFO - 21:18:52  Finished running  in 0 hours 0 minutes and 0.04 seconds (0.04s).
+[2025-02-04T21:18:52.045+0000] {logging_mixin.py:188} INFO - 21:18:52  Encountered an error:
+ERROR: Cross-db references not allowed in postgres (datamart vs ***)
+[2025-02-04T21:18:52.776+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-04T21:18:52.777+0000] {local.py:494} INFO - Inlets: []
+[2025-02-04T21:18:52.778+0000] {local.py:495} INFO - Outlets: []
+[2025-02-04T21:18:52.779+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-04T21:18:52.780+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-04T21:18:52.790+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_credit_fraud to None, run_after=None
+[2025-02-04T21:18:52.808+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-04T21:18:52.814+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/cosmos/operators/base.py", line 268, in execute
+    self.build_and_run_cmd(context=context, cmd_flags=self.add_cmd_flags())
+  File "/usr/local/lib/python3.11/site-packages/cosmos/operators/local.py", line 654, in build_and_run_cmd
+    result = self.run_command(cmd=dbt_cmd, env=env, context=context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/cosmos/operators/local.py", line 509, in run_command
+    self.handle_exception(result)
+  File "/usr/local/lib/python3.11/site-packages/cosmos/operators/local.py", line 233, in handle_exception_dbt_runner
+    raise AirflowException(f"dbt invocation did not complete with unhandled error: {result.exception}")
+airflow.exceptions.AirflowException: dbt invocation did not complete with unhandled error: ERROR: Cross-db references not allowed in postgres (datamart vs ***)
+[2025-02-04T21:18:52.819+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_dbt-model_credit_fraud, task_id=model_credit_fraud.stg_credit_fraud_run, run_id=manual__2025-02-04T21:18:45.768107+00:00, execution_date=20250204T211845, start_date=20250204T211849, end_date=20250204T211852
+[2025-02-04T21:18:52.825+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 2 for task model_credit_fraud.stg_credit_fraud_run (dbt invocation did not complete with unhandled error: ERROR: Cross-db references not allowed in postgres (datamart vs ***); 70)
+[2025-02-04T21:18:52.854+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-02-04T21:18:52.873+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-04T21:18:52.878+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

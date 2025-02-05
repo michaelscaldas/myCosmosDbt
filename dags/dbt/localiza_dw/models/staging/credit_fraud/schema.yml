@@ -1,0 +1,31 @@
+version: 2
+
+models:
+
+  - name: stg_credit_fraud
+    columns:
+      - name: timestamp
+        tests:
+          - not_null:
+              config:
+                severity: warn
+
+      - name: amount
+        tests:
+          - not_null:
+              config:
+                severity: warn
+
+      - name: risk_score
+        tests:
+          - not_null:
+              config:
+                severity: warn
+
+      - name: location_region
+        tests:
+          - accepted_values:
+              values: ['North America','South America','Asia','Africa','Europe']
+              name: locations
+              config:
+                severity: warn

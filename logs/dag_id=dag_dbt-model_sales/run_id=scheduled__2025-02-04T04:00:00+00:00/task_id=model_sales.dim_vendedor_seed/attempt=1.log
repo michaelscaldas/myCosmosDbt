@@ -1,0 +1,231 @@
+[2025-02-05T13:40:20.969+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T13:40:20.989+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [queued]>
+[2025-02-05T13:40:21.001+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [queued]>
+[2025-02-05T13:40:21.002+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T13:40:21.016+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtSeedLocalOperator): model_sales.dim_vendedor_seed> on 2025-02-04 04:00:00+00:00
+[2025-02-05T13:40:21.021+0000] {standard_task_runner.py:63} INFO - Started process 4313 to run task
+[2025-02-05T13:40:21.025+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_sales', 'model_sales.dim_vendedor_seed', 'scheduled__2025-02-04T04:00:00+00:00', '--job-id', '126', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_sales.py', '--cfg-path', '/tmp/tmpbbwe4biy']
+[2025-02-05T13:40:21.026+0000] {standard_task_runner.py:91} INFO - Job 126: Subtask model_sales.dim_vendedor_seed
+[2025-02-05T13:40:21.090+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [running]> on host 98025f4a542d
+[2025-02-05T13:40:21.196+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_sales' AIRFLOW_CTX_TASK_ID='model_sales.dim_vendedor_seed' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-04T04:00:00+00:00'
+[2025-02-05T13:40:21.199+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T13:40:23.867+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T13:40:23.869+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmplxd862c6 from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T13:40:23.877+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_sales__model_sales/target/partial_parse.msgpack
+[2025-02-05T13:40:23.885+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T13:40:23.896+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T13:40:23.897+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf/profiles.yml.
+[2025-02-05T13:40:23.898+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['seed', '--vars', '{"PROD": P003,                                 "LIMITE_QUANTIDADE": 500,                                 "DATA_INICIO": 1999-01-01,                                 "DATA_FIM": 2025-02-05}', '--models', 'dim_vendedor', '--project-dir', '/tmp/tmplxd862c6', '--profiles-dir', '/tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf', '--profile', '***', '--target', 'prod']
+ in /tmp/tmplxd862c6
+[2025-02-05T13:40:23.918+0000] {logging_mixin.py:188} INFO - 13:40:23  Running with dbt=1.6.1
+[2025-02-05T13:40:24.046+0000] {logging_mixin.py:188} INFO - 13:40:24  Registered adapter: postgres=1.6.1
+[2025-02-05T13:40:24.656+0000] {logging_mixin.py:188} INFO - 13:40:24  Found 4 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T13:40:24.660+0000] {logging_mixin.py:188} INFO - 13:40:24
+[2025-02-05T13:40:24.771+0000] {logging_mixin.py:188} INFO - 13:40:24  Concurrency: 1 threads (target='prod')
+[2025-02-05T13:40:24.772+0000] {logging_mixin.py:188} INFO - 13:40:24
+[2025-02-05T13:40:24.778+0000] {logging_mixin.py:188} INFO - 13:40:24  1 of 1 START seed file dm_sales.dim_vendedor ................................... [RUN]
+[2025-02-05T13:40:24.899+0000] {logging_mixin.py:188} INFO - 13:40:24  1 of 1 OK loaded seed file dm_sales.dim_vendedor ............................... [INSERT 20 in 0.12s]
+[2025-02-05T13:40:24.913+0000] {logging_mixin.py:188} INFO - 13:40:24
+[2025-02-05T13:40:24.915+0000] {logging_mixin.py:188} INFO - 13:40:24  Finished running 1 seed in 0 hours 0 minutes and 0.25 seconds (0.25s).
+[2025-02-05T13:40:24.925+0000] {logging_mixin.py:188} INFO - 13:40:24
+[2025-02-05T13:40:24.926+0000] {logging_mixin.py:188} INFO - 13:40:24  Completed successfully
+[2025-02-05T13:40:24.927+0000] {logging_mixin.py:188} INFO - 13:40:24
+[2025-02-05T13:40:24.929+0000] {logging_mixin.py:188} INFO - 13:40:24  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-02-05T13:40:25.688+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T13:40:25.690+0000] {local.py:494} INFO - Inlets: []
+[2025-02-05T13:40:25.691+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T13:40:25.692+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T13:40:25.692+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T13:40:25.714+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_sales to 2025-02-05 04:00:00+00:00, run_after=2025-02-06 04:00:00+00:00
+[2025-02-05T13:40:25.735+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T13:40:25.746+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_sales, task_id=model_sales.dim_vendedor_seed, run_id=scheduled__2025-02-04T04:00:00+00:00, execution_date=20250204T040000, start_date=20250205T134020, end_date=20250205T134025
+[2025-02-05T13:40:25.779+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T13:40:25.802+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T13:40:25.804+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-02-05T14:29:43.324+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T14:29:43.341+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [queued]>
+[2025-02-05T14:29:43.352+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [queued]>
+[2025-02-05T14:29:43.352+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T14:29:43.364+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtSeedLocalOperator): model_sales.dim_vendedor_seed> on 2025-02-04 04:00:00+00:00
+[2025-02-05T14:29:43.368+0000] {standard_task_runner.py:63} INFO - Started process 56 to run task
+[2025-02-05T14:29:43.371+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_sales', 'model_sales.dim_vendedor_seed', 'scheduled__2025-02-04T04:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_sales.py', '--cfg-path', '/tmp/tmpfd624goi']
+[2025-02-05T14:29:43.372+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask model_sales.dim_vendedor_seed
+[2025-02-05T14:29:43.425+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [running]> on host eb17fa5f9c23
+[2025-02-05T14:29:43.499+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_sales' AIRFLOW_CTX_TASK_ID='model_sales.dim_vendedor_seed' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-04T04:00:00+00:00'
+[2025-02-05T14:29:43.501+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T14:29:45.853+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T14:29:45.854+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmpiqdsxrzr from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T14:29:45.862+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /usr/local/airflow/dags/dbt/localiza_dw/target/partial_parse.msgpack
+[2025-02-05T14:29:45.904+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T14:29:45.912+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T14:29:45.914+0000] {base.py:244} INFO - Using real values for profile ***
+[2025-02-05T14:29:45.916+0000] {config.py:335} INFO - Profile not found in cache storing and using profile: /tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf/profiles.yml.
+[2025-02-05T14:29:45.916+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['seed', '--vars', '{"PROD": P003,                                 "LIMITE_QUANTIDADE": 500,                                 "DATA_INICIO": 1999-01-01,                                 "DATA_FIM": 2025-02-05}', '--models', 'dim_vendedor', '--project-dir', '/tmp/tmpiqdsxrzr', '--profiles-dir', '/tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf', '--profile', '***', '--target', 'prod']
+ in /tmp/tmpiqdsxrzr
+[2025-02-05T14:29:45.933+0000] {logging_mixin.py:188} INFO - 14:29:45  Running with dbt=1.6.1
+[2025-02-05T14:29:46.058+0000] {logging_mixin.py:188} INFO - 14:29:46  Registered adapter: postgres=1.6.1
+[2025-02-05T14:29:46.081+0000] {logging_mixin.py:188} INFO - 14:29:46  Unable to do partial parsing because of a version mismatch
+[2025-02-05T14:29:47.484+0000] {logging_mixin.py:188} INFO - 14:29:47  Found 4 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T14:29:47.487+0000] {logging_mixin.py:188} INFO - 14:29:47
+[2025-02-05T14:29:47.601+0000] {logging_mixin.py:188} INFO - 14:29:47  Concurrency: 1 threads (target='prod')
+[2025-02-05T14:29:47.602+0000] {logging_mixin.py:188} INFO - 14:29:47
+[2025-02-05T14:29:47.606+0000] {logging_mixin.py:188} INFO - 14:29:47  1 of 1 START seed file dm_sales.dim_vendedor ................................... [RUN]
+[2025-02-05T14:29:47.720+0000] {logging_mixin.py:188} INFO - 14:29:47  1 of 1 OK loaded seed file dm_sales.dim_vendedor ............................... [INSERT 20 in 0.11s]
+[2025-02-05T14:29:47.734+0000] {logging_mixin.py:188} INFO - 14:29:47
+[2025-02-05T14:29:47.735+0000] {logging_mixin.py:188} INFO - 14:29:47  Finished running 1 seed in 0 hours 0 minutes and 0.25 seconds (0.25s).
+[2025-02-05T14:29:47.748+0000] {logging_mixin.py:188} INFO - 14:29:47
+[2025-02-05T14:29:47.750+0000] {logging_mixin.py:188} INFO - 14:29:47  Completed successfully
+[2025-02-05T14:29:47.751+0000] {logging_mixin.py:188} INFO - 14:29:47
+[2025-02-05T14:29:47.751+0000] {logging_mixin.py:188} INFO - 14:29:47  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-02-05T14:29:48.505+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T14:29:48.508+0000] {local.py:494} INFO - Inlets: []
+[2025-02-05T14:29:48.508+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T14:29:48.509+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T14:29:48.509+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T14:29:48.526+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_sales to 2025-02-05 04:00:00+00:00, run_after=2025-02-06 04:00:00+00:00
+[2025-02-05T14:29:48.553+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T14:29:48.560+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_sales, task_id=model_sales.dim_vendedor_seed, run_id=scheduled__2025-02-04T04:00:00+00:00, execution_date=20250204T040000, start_date=20250205T142943, end_date=20250205T142948
+[2025-02-05T14:29:48.587+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T14:29:48.606+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T14:29:48.608+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-02-05T14:55:16.092+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T14:55:16.106+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [queued]>
+[2025-02-05T14:55:16.115+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [queued]>
+[2025-02-05T14:55:16.116+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T14:55:16.127+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtSeedLocalOperator): model_sales.dim_vendedor_seed> on 2025-02-04 04:00:00+00:00
+[2025-02-05T14:55:16.131+0000] {standard_task_runner.py:63} INFO - Started process 58 to run task
+[2025-02-05T14:55:16.134+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_sales', 'model_sales.dim_vendedor_seed', 'scheduled__2025-02-04T04:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_sales.py', '--cfg-path', '/tmp/tmpl8ojabie']
+[2025-02-05T14:55:16.135+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask model_sales.dim_vendedor_seed
+[2025-02-05T14:55:16.186+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [running]> on host 7c7f80fafcb7
+[2025-02-05T14:55:16.273+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_sales' AIRFLOW_CTX_TASK_ID='model_sales.dim_vendedor_seed' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-04T04:00:00+00:00'
+[2025-02-05T14:55:16.275+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T14:55:18.833+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T14:55:18.835+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmppe9xm7up from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T14:55:18.848+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /usr/local/airflow/dags/dbt/localiza_dw/target/partial_parse.msgpack
+[2025-02-05T14:55:18.904+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T14:55:18.919+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T14:55:18.921+0000] {base.py:244} INFO - Using real values for profile ***
+[2025-02-05T14:55:18.925+0000] {config.py:335} INFO - Profile not found in cache storing and using profile: /tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf/profiles.yml.
+[2025-02-05T14:55:18.928+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['seed', '--vars', '{"PROD": P003,                                 "LIMITE_QUANTIDADE": 500,                                 "DATA_INICIO": 1999-01-01,                                 "DATA_FIM": 2025-02-05}', '--models', 'dim_vendedor', '--project-dir', '/tmp/tmppe9xm7up', '--profiles-dir', '/tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf', '--profile', '***', '--target', 'prod']
+ in /tmp/tmppe9xm7up
+[2025-02-05T14:55:18.970+0000] {logging_mixin.py:188} INFO - 14:55:18  Running with dbt=1.6.1
+[2025-02-05T14:55:19.198+0000] {logging_mixin.py:188} INFO - 14:55:19  Registered adapter: postgres=1.6.1
+[2025-02-05T14:55:19.237+0000] {logging_mixin.py:188} INFO - 14:55:19  Unable to do partial parsing because of a version mismatch
+[2025-02-05T14:55:20.727+0000] {logging_mixin.py:188} INFO - 14:55:20  Found 4 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T14:55:20.729+0000] {logging_mixin.py:188} INFO - 14:55:20
+[2025-02-05T14:55:20.830+0000] {logging_mixin.py:188} INFO - 14:55:20  Concurrency: 1 threads (target='prod')
+[2025-02-05T14:55:20.832+0000] {logging_mixin.py:188} INFO - 14:55:20
+[2025-02-05T14:55:20.836+0000] {logging_mixin.py:188} INFO - 14:55:20  1 of 1 START seed file dm_sales.dim_vendedor ................................... [RUN]
+[2025-02-05T14:55:20.947+0000] {logging_mixin.py:188} INFO - 14:55:20  1 of 1 OK loaded seed file dm_sales.dim_vendedor ............................... [INSERT 20 in 0.11s]
+[2025-02-05T14:55:20.962+0000] {logging_mixin.py:188} INFO - 14:55:20
+[2025-02-05T14:55:20.963+0000] {logging_mixin.py:188} INFO - 14:55:20  Finished running 1 seed in 0 hours 0 minutes and 0.23 seconds (0.23s).
+[2025-02-05T14:55:20.972+0000] {logging_mixin.py:188} INFO - 14:55:20
+[2025-02-05T14:55:20.973+0000] {logging_mixin.py:188} INFO - 14:55:20  Completed successfully
+[2025-02-05T14:55:20.974+0000] {logging_mixin.py:188} INFO - 14:55:20
+[2025-02-05T14:55:20.975+0000] {logging_mixin.py:188} INFO - 14:55:20  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-02-05T14:55:21.725+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T14:55:21.728+0000] {local.py:494} INFO - Inlets: []
+[2025-02-05T14:55:21.729+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T14:55:21.730+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T14:55:21.731+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T14:55:21.754+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_sales to 2025-02-05 04:00:00+00:00, run_after=2025-02-06 04:00:00+00:00
+[2025-02-05T14:55:21.781+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T14:55:21.789+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_sales, task_id=model_sales.dim_vendedor_seed, run_id=scheduled__2025-02-04T04:00:00+00:00, execution_date=20250204T040000, start_date=20250205T145516, end_date=20250205T145521
+[2025-02-05T14:55:21.825+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T14:55:21.852+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T14:55:21.856+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-02-05T15:06:45.227+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T15:06:45.244+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [queued]>
+[2025-02-05T15:06:45.252+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [queued]>
+[2025-02-05T15:06:45.252+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T15:06:45.263+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtSeedLocalOperator): model_sales.dim_vendedor_seed> on 2025-02-04 04:00:00+00:00
+[2025-02-05T15:06:45.267+0000] {standard_task_runner.py:63} INFO - Started process 56 to run task
+[2025-02-05T15:06:45.270+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_sales', 'model_sales.dim_vendedor_seed', 'scheduled__2025-02-04T04:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_sales.py', '--cfg-path', '/tmp/tmp48_frxnn']
+[2025-02-05T15:06:45.271+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask model_sales.dim_vendedor_seed
+[2025-02-05T15:06:45.318+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [running]> on host 5c897c3a2254
+[2025-02-05T15:06:45.395+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_sales' AIRFLOW_CTX_TASK_ID='model_sales.dim_vendedor_seed' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-04T04:00:00+00:00'
+[2025-02-05T15:06:45.398+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T15:06:47.594+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T15:06:47.596+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmp6ludxlly from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T15:06:47.605+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /usr/local/airflow/dags/dbt/localiza_dw/target/partial_parse.msgpack
+[2025-02-05T15:06:47.642+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T15:06:47.650+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T15:06:47.651+0000] {base.py:244} INFO - Using real values for profile ***
+[2025-02-05T15:06:47.654+0000] {config.py:335} INFO - Profile not found in cache storing and using profile: /tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf/profiles.yml.
+[2025-02-05T15:06:47.654+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['seed', '--vars', '{"PROD": "P003", "LIMITE_QUANTIDADE": "500", "DATA_INICIO": "1999-01-01", "DATA_FIM": "2025-02-05"}', '--models', 'dim_vendedor', '--project-dir', '/tmp/tmp6ludxlly', '--profiles-dir', '/tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf', '--profile', '***', '--target', 'prod']
+ in /tmp/tmp6ludxlly
+[2025-02-05T15:06:47.669+0000] {logging_mixin.py:188} INFO - 15:06:47  Running with dbt=1.6.1
+[2025-02-05T15:06:47.782+0000] {logging_mixin.py:188} INFO - 15:06:47  Registered adapter: postgres=1.6.1
+[2025-02-05T15:06:47.804+0000] {logging_mixin.py:188} INFO - 15:06:47  Unable to do partial parsing because of a version mismatch
+[2025-02-05T15:06:49.265+0000] {logging_mixin.py:188} INFO - 15:06:49  Found 4 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T15:06:49.268+0000] {logging_mixin.py:188} INFO - 15:06:49
+[2025-02-05T15:06:49.384+0000] {logging_mixin.py:188} INFO - 15:06:49  Concurrency: 1 threads (target='prod')
+[2025-02-05T15:06:49.385+0000] {logging_mixin.py:188} INFO - 15:06:49
+[2025-02-05T15:06:49.390+0000] {logging_mixin.py:188} INFO - 15:06:49  1 of 1 START seed file dm_sales.dim_vendedor ................................... [RUN]
+[2025-02-05T15:06:49.500+0000] {logging_mixin.py:188} INFO - 15:06:49  1 of 1 OK loaded seed file dm_sales.dim_vendedor ............................... [INSERT 20 in 0.11s]
+[2025-02-05T15:06:49.513+0000] {logging_mixin.py:188} INFO - 15:06:49
+[2025-02-05T15:06:49.514+0000] {logging_mixin.py:188} INFO - 15:06:49  Finished running 1 seed in 0 hours 0 minutes and 0.24 seconds (0.24s).
+[2025-02-05T15:06:49.524+0000] {logging_mixin.py:188} INFO - 15:06:49
+[2025-02-05T15:06:49.525+0000] {logging_mixin.py:188} INFO - 15:06:49  Completed successfully
+[2025-02-05T15:06:49.526+0000] {logging_mixin.py:188} INFO - 15:06:49
+[2025-02-05T15:06:49.527+0000] {logging_mixin.py:188} INFO - 15:06:49  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-02-05T15:06:50.291+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T15:06:50.293+0000] {local.py:494} INFO - Inlets: []
+[2025-02-05T15:06:50.294+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T15:06:50.294+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T15:06:50.295+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T15:06:50.315+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_sales to 2025-02-05 04:00:00+00:00, run_after=2025-02-06 04:00:00+00:00
+[2025-02-05T15:06:50.347+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T15:06:50.355+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_sales, task_id=model_sales.dim_vendedor_seed, run_id=scheduled__2025-02-04T04:00:00+00:00, execution_date=20250204T040000, start_date=20250205T150645, end_date=20250205T150650
+[2025-02-05T15:06:50.396+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T15:06:50.415+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T15:06:50.419+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-02-05T16:44:53.833+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T16:44:53.847+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [queued]>
+[2025-02-05T16:44:53.854+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [queued]>
+[2025-02-05T16:44:53.854+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T16:44:53.864+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtSeedLocalOperator): model_sales.dim_vendedor_seed> on 2025-02-04 04:00:00+00:00
+[2025-02-05T16:44:53.868+0000] {standard_task_runner.py:63} INFO - Started process 90 to run task
+[2025-02-05T16:44:53.871+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_sales', 'model_sales.dim_vendedor_seed', 'scheduled__2025-02-04T04:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_sales.py', '--cfg-path', '/tmp/tmp0o54dkwk']
+[2025-02-05T16:44:53.872+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask model_sales.dim_vendedor_seed
+[2025-02-05T16:44:53.919+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_sales.model_sales.dim_vendedor_seed scheduled__2025-02-04T04:00:00+00:00 [running]> on host 584eb3626689
+[2025-02-05T16:44:53.991+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_sales' AIRFLOW_CTX_TASK_ID='model_sales.dim_vendedor_seed' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-04T04:00:00+00:00'
+[2025-02-05T16:44:53.993+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T16:44:56.094+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T16:44:56.097+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmp7szoppwt from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T16:44:56.105+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_sales__model_sales/target/partial_parse.msgpack
+[2025-02-05T16:44:56.111+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T16:44:56.119+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T16:44:56.120+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf/profiles.yml.
+[2025-02-05T16:44:56.121+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['seed', '--vars', '{"PROD": "P003", "LIMITE_QUANTIDADE": "500", "DATA_INICIO": "1999-01-01", "DATA_FIM": "2025-02-05"}', '--models', 'dim_vendedor', '--project-dir', '/tmp/tmp7szoppwt', '--profiles-dir', '/tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf', '--profile', '***', '--target', 'prod']
+ in /tmp/tmp7szoppwt
+[2025-02-05T16:44:56.138+0000] {logging_mixin.py:188} INFO - 16:44:56  Running with dbt=1.6.1
+[2025-02-05T16:44:56.242+0000] {logging_mixin.py:188} INFO - 16:44:56  Registered adapter: postgres=1.6.1
+[2025-02-05T16:44:56.850+0000] {logging_mixin.py:188} INFO - 16:44:56  Found 5 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T16:44:56.853+0000] {logging_mixin.py:188} INFO - 16:44:56
+[2025-02-05T16:44:56.922+0000] {logging_mixin.py:188} INFO - 16:44:56  Concurrency: 1 threads (target='prod')
+[2025-02-05T16:44:56.925+0000] {logging_mixin.py:188} INFO - 16:44:56
+[2025-02-05T16:44:56.928+0000] {logging_mixin.py:188} INFO - 16:44:56  1 of 1 START seed file dm_sales.dim_vendedor ................................... [RUN]
+[2025-02-05T16:44:57.017+0000] {logging_mixin.py:188} INFO - 16:44:57  1 of 1 OK loaded seed file dm_sales.dim_vendedor ............................... [INSERT 20 in 0.09s]
+[2025-02-05T16:44:57.032+0000] {logging_mixin.py:188} INFO - 16:44:57
+[2025-02-05T16:44:57.033+0000] {logging_mixin.py:188} INFO - 16:44:57  Finished running 1 seed in 0 hours 0 minutes and 0.18 seconds (0.18s).
+[2025-02-05T16:44:57.040+0000] {logging_mixin.py:188} INFO - 16:44:57
+[2025-02-05T16:44:57.042+0000] {logging_mixin.py:188} INFO - 16:44:57  Completed successfully
+[2025-02-05T16:44:57.043+0000] {logging_mixin.py:188} INFO - 16:44:57
+[2025-02-05T16:44:57.044+0000] {logging_mixin.py:188} INFO - 16:44:57  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-02-05T16:44:57.805+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T16:44:57.808+0000] {local.py:494} INFO - Inlets: []
+[2025-02-05T16:44:57.809+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T16:44:57.809+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T16:44:57.809+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T16:44:57.826+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_sales to 2025-02-05 04:00:00+00:00, run_after=2025-02-06 04:00:00+00:00
+[2025-02-05T16:44:57.856+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T16:44:57.863+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_sales, task_id=model_sales.dim_vendedor_seed, run_id=scheduled__2025-02-04T04:00:00+00:00, execution_date=20250204T040000, start_date=20250205T164453, end_date=20250205T164457
+[2025-02-05T16:44:57.895+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T16:44:57.915+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T16:44:57.917+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

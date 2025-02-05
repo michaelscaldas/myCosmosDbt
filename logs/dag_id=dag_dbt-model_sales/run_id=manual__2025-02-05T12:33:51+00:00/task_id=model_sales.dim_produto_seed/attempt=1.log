@@ -1,0 +1,45 @@
+[2025-02-05T12:34:34.199+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T12:34:34.219+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_produto_seed manual__2025-02-05T12:33:51+00:00 [queued]>
+[2025-02-05T12:34:34.231+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_produto_seed manual__2025-02-05T12:33:51+00:00 [queued]>
+[2025-02-05T12:34:34.232+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T12:34:34.248+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtSeedLocalOperator): model_sales.dim_produto_seed> on 2025-02-05 12:33:51+00:00
+[2025-02-05T12:34:34.253+0000] {standard_task_runner.py:63} INFO - Started process 3342 to run task
+[2025-02-05T12:34:34.257+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_sales', 'model_sales.dim_produto_seed', 'manual__2025-02-05T12:33:51+00:00', '--job-id', '102', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_sales.py', '--cfg-path', '/tmp/tmpcrig2308']
+[2025-02-05T12:34:34.258+0000] {standard_task_runner.py:91} INFO - Job 102: Subtask model_sales.dim_produto_seed
+[2025-02-05T12:34:34.327+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_sales.model_sales.dim_produto_seed manual__2025-02-05T12:33:51+00:00 [running]> on host 98025f4a542d
+[2025-02-05T12:34:34.443+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_sales' AIRFLOW_CTX_TASK_ID='model_sales.dim_produto_seed' AIRFLOW_CTX_EXECUTION_DATE='2025-02-05T12:33:51+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-05T12:33:51+00:00'
+[2025-02-05T12:34:34.446+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T12:34:37.789+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T12:34:37.791+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmpinokg64l from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T12:34:37.798+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_sales__model_sales/target/partial_parse.msgpack
+[2025-02-05T12:34:37.806+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T12:34:37.820+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T12:34:37.822+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf/profiles.yml.
+[2025-02-05T12:34:37.823+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['seed', '--vars', '{"PROD_1": P003,                                 "PROD_2": P002,                                 "DATA_INICIO": 1999-01-01,                                 "DATA_FIM": 2025-02-05}', '--models', 'dim_produto', '--project-dir', '/tmp/tmpinokg64l', '--profiles-dir', '/tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf', '--profile', '***', '--target', 'prod']
+ in /tmp/tmpinokg64l
+[2025-02-05T12:34:37.848+0000] {logging_mixin.py:188} INFO - 12:34:37  Running with dbt=1.6.1
+[2025-02-05T12:34:38.013+0000] {logging_mixin.py:188} INFO - 12:34:38  Registered adapter: postgres=1.6.1
+[2025-02-05T12:34:38.662+0000] {logging_mixin.py:188} INFO - 12:34:38  Found 5 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T12:34:38.668+0000] {logging_mixin.py:188} INFO - 12:34:38
+[2025-02-05T12:34:38.816+0000] {logging_mixin.py:188} INFO - 12:34:38  Concurrency: 1 threads (target='prod')
+[2025-02-05T12:34:38.818+0000] {logging_mixin.py:188} INFO - 12:34:38
+[2025-02-05T12:34:38.825+0000] {logging_mixin.py:188} INFO - 12:34:38  1 of 1 START seed file dm_sales.dim_produto .................................... [RUN]
+[2025-02-05T12:34:39.123+0000] {logging_mixin.py:188} INFO - 12:34:39  1 of 1 OK loaded seed file dm_sales.dim_produto ................................ [INSERT 5 in 0.29s]
+[2025-02-05T12:34:39.155+0000] {logging_mixin.py:188} INFO - 12:34:39
+[2025-02-05T12:34:39.156+0000] {logging_mixin.py:188} INFO - 12:34:39  Finished running 1 seed in 0 hours 0 minutes and 0.48 seconds (0.48s).
+[2025-02-05T12:34:39.176+0000] {logging_mixin.py:188} INFO - 12:34:39
+[2025-02-05T12:34:39.179+0000] {logging_mixin.py:188} INFO - 12:34:39  Completed successfully
+[2025-02-05T12:34:39.181+0000] {logging_mixin.py:188} INFO - 12:34:39
+[2025-02-05T12:34:39.183+0000] {logging_mixin.py:188} INFO - 12:34:39  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-02-05T12:34:39.974+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T12:34:39.978+0000] {local.py:494} INFO - Inlets: []
+[2025-02-05T12:34:39.979+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T12:34:39.980+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T12:34:39.981+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T12:34:40.002+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_sales to None, run_after=None
+[2025-02-05T12:34:40.039+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T12:34:40.052+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_sales, task_id=model_sales.dim_produto_seed, run_id=manual__2025-02-05T12:33:51+00:00, execution_date=20250205T123351, start_date=20250205T123434, end_date=20250205T123440
+[2025-02-05T12:34:40.085+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T12:34:40.119+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T12:34:40.122+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

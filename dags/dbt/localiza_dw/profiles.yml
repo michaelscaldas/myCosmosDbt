@@ -1,0 +1,23 @@
+localiza_dw:
+  outputs:
+    dev:
+      dbname: localiza_dw
+      host: postgres-db
+      pass: localiza_dw
+      port: 5432
+      schema: dm_credit_operations_stage
+      threads: 3
+      type: postgres
+      user: localiza_dw
+      introspect_relations: false
+    prod:
+      dbname: localiza_dw
+      host: postgres-db
+      pass: localiza_dw
+      port: 5432
+      schema: dm_credit_operations
+      threads: 3
+      type: postgres
+      user: localiza_dw
+      introspect_relations: false
+  target: dev

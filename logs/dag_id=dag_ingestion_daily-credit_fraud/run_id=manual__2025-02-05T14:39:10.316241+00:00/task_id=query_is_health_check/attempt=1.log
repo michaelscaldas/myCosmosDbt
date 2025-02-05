@@ -1,0 +1,25 @@
+[2025-02-05T14:40:17.420+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T14:40:17.440+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_ingestion_daily-credit_fraud.query_is_health_check manual__2025-02-05T14:39:10.316241+00:00 [queued]>
+[2025-02-05T14:40:17.450+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_ingestion_daily-credit_fraud.query_is_health_check manual__2025-02-05T14:39:10.316241+00:00 [queued]>
+[2025-02-05T14:40:17.451+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-02-05T14:40:17.466+0000] {taskinstance.py:2330} INFO - Executing <Task(PostgresOperator): query_is_health_check> on 2025-02-05 14:39:10.316241+00:00
+[2025-02-05T14:40:17.472+0000] {standard_task_runner.py:63} INFO - Started process 453 to run task
+[2025-02-05T14:40:17.475+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_ingestion_daily-credit_fraud', 'query_is_health_check', 'manual__2025-02-05T14:39:10.316241+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/dag_ingestion_daily-fraud_credit.py', '--cfg-path', '/tmp/tmp336idayv']
+[2025-02-05T14:40:17.477+0000] {standard_task_runner.py:91} INFO - Job 20: Subtask query_is_health_check
+[2025-02-05T14:40:17.536+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_ingestion_daily-credit_fraud.query_is_health_check manual__2025-02-05T14:39:10.316241+00:00 [running]> on host eb17fa5f9c23
+[2025-02-05T14:40:17.639+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_ingestion_daily-credit_fraud' AIRFLOW_CTX_TASK_ID='query_is_health_check' AIRFLOW_CTX_EXECUTION_DATE='2025-02-05T14:39:10.316241+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-05T14:39:10.316241+00:00'
+[2025-02-05T14:40:17.642+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T14:40:17.659+0000] {sql.py:276} INFO - Executing: 
+            SELECT 1 FROM dm_credit_operations_stage.raw_credit_fraud LIMIT 1;
+        
+[2025-02-05T14:40:17.672+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T14:40:17.732+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T14:40:17.738+0000] {sql.py:450} INFO - Running statement: 
+            SELECT 1 FROM dm_credit_operations_stage.raw_credit_fraud LIMIT 1;
+        , parameters: None
+[2025-02-05T14:40:17.739+0000] {sql.py:459} INFO - Rows affected: 1
+[2025-02-05T14:40:17.741+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T14:40:17.770+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_ingestion_daily-credit_fraud, task_id=query_is_health_check, run_id=manual__2025-02-05T14:39:10.316241+00:00, execution_date=20250205T143910, start_date=20250205T144017, end_date=20250205T144017
+[2025-02-05T14:40:17.819+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T14:40:17.846+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T14:40:17.848+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

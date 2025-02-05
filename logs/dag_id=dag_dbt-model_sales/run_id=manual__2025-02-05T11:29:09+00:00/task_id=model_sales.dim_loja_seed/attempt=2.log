@@ -1,0 +1,54 @@
+[2025-02-05T11:31:02.345+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T11:31:02.360+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_loja_seed manual__2025-02-05T11:29:09+00:00 [queued]>
+[2025-02-05T11:31:02.370+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_sales.model_sales.dim_loja_seed manual__2025-02-05T11:29:09+00:00 [queued]>
+[2025-02-05T11:31:02.370+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-02-05T11:31:02.380+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtSeedLocalOperator): model_sales.dim_loja_seed> on 2025-02-05 11:29:09+00:00
+[2025-02-05T11:31:02.384+0000] {standard_task_runner.py:63} INFO - Started process 1271 to run task
+[2025-02-05T11:31:02.386+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_sales', 'model_sales.dim_loja_seed', 'manual__2025-02-05T11:29:09+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_sales.py', '--cfg-path', '/tmp/tmpx74q_4ap']
+[2025-02-05T11:31:02.388+0000] {standard_task_runner.py:91} INFO - Job 27: Subtask model_sales.dim_loja_seed
+[2025-02-05T11:31:02.428+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_sales.model_sales.dim_loja_seed manual__2025-02-05T11:29:09+00:00 [running]> on host 98025f4a542d
+[2025-02-05T11:31:02.495+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_sales' AIRFLOW_CTX_TASK_ID='model_sales.dim_loja_seed' AIRFLOW_CTX_EXECUTION_DATE='2025-02-05T11:29:09+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-05T11:29:09+00:00'
+[2025-02-05T11:31:02.497+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T11:31:04.198+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T11:31:04.199+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmpcubwpjit from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T11:31:04.209+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_sales__model_sales/target/partial_parse.msgpack
+[2025-02-05T11:31:04.213+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T11:31:04.220+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T11:31:04.221+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf/profiles.yml.
+[2025-02-05T11:31:04.221+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['seed', '--vars', '{"PROD_1": P003},                                {"DATA_INICIO": 1999-11-01},                                {"DATA_FIM": 2022-11-30}', '--models', 'dim_loja', '--project-dir', '/tmp/tmpcubwpjit', '--profiles-dir', '/tmp/cosmos/profile/47873256e3df2d6067f929148b3671caee72f33396318ef25aae33418849eddf', '--profile', '***', '--target', 'prod']
+ in /tmp/tmpcubwpjit
+[2025-02-05T11:31:04.226+0000] {logging_mixin.py:188} INFO - 11:31:04  The YAML provided in the --vars argument is not valid.
+[2025-02-05T11:31:04.233+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T11:31:04.234+0000] {local.py:494} INFO - Inlets: []
+[2025-02-05T11:31:04.234+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T11:31:04.235+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T11:31:04.235+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T11:31:04.245+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_sales to None, run_after=None
+[2025-02-05T11:31:04.261+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T11:31:04.266+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/cosmos/operators/base.py", line 268, in execute
+    self.build_and_run_cmd(context=context, cmd_flags=self.add_cmd_flags())
+  File "/usr/local/lib/python3.11/site-packages/cosmos/operators/local.py", line 654, in build_and_run_cmd
+    result = self.run_command(cmd=dbt_cmd, env=env, context=context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/cosmos/operators/local.py", line 509, in run_command
+    self.handle_exception(result)
+  File "/usr/local/lib/python3.11/site-packages/cosmos/operators/local.py", line 233, in handle_exception_dbt_runner
+    raise AirflowException(f"dbt invocation did not complete with unhandled error: {result.exception}")
+airflow.exceptions.AirflowException: dbt invocation did not complete with unhandled error: String '{"PROD_1": P003},                                {"DATA_INICIO": 1999-11-01},                                {"DATA_FIM": 2022-11-30}' is not valid YAML
+[2025-02-05T11:31:04.269+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_dbt-model_sales, task_id=model_sales.dim_loja_seed, run_id=manual__2025-02-05T11:29:09+00:00, execution_date=20250205T112909, start_date=20250205T113102, end_date=20250205T113104
+[2025-02-05T11:31:04.276+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 27 for task model_sales.dim_loja_seed (dbt invocation did not complete with unhandled error: String '{"PROD_1": P003},                                {"DATA_INICIO": 1999-11-01},                                {"DATA_FIM": 2022-11-30}' is not valid YAML; 1271)
+[2025-02-05T11:31:04.305+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-02-05T11:31:04.319+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T11:31:04.321+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

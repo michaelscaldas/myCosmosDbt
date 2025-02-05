@@ -1,0 +1,25 @@
+[2025-02-05T14:39:17.366+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T14:39:17.388+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_ingestion_daily-credit_fraud.bulk_file_load manual__2025-02-05T14:39:10.316241+00:00 [queued]>
+[2025-02-05T14:39:17.402+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_ingestion_daily-credit_fraud.bulk_file_load manual__2025-02-05T14:39:10.316241+00:00 [queued]>
+[2025-02-05T14:39:17.403+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-02-05T14:39:17.420+0000] {taskinstance.py:2330} INFO - Executing <Task(PostgresOperator): bulk_file_load> on 2025-02-05 14:39:10.316241+00:00
+[2025-02-05T14:39:17.426+0000] {standard_task_runner.py:63} INFO - Started process 433 to run task
+[2025-02-05T14:39:17.430+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_ingestion_daily-credit_fraud', 'bulk_file_load', 'manual__2025-02-05T14:39:10.316241+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/dag_ingestion_daily-fraud_credit.py', '--cfg-path', '/tmp/tmpuzi335_x']
+[2025-02-05T14:39:17.431+0000] {standard_task_runner.py:91} INFO - Job 19: Subtask bulk_file_load
+[2025-02-05T14:39:17.489+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_ingestion_daily-credit_fraud.bulk_file_load manual__2025-02-05T14:39:10.316241+00:00 [running]> on host eb17fa5f9c23
+[2025-02-05T14:39:17.616+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_ingestion_daily-credit_fraud' AIRFLOW_CTX_TASK_ID='bulk_file_load' AIRFLOW_CTX_EXECUTION_DATE='2025-02-05T14:39:10.316241+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-05T14:39:10.316241+00:00'
+[2025-02-05T14:39:17.619+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T14:39:17.635+0000] {sql.py:276} INFO - Executing: 
+            COPY dm_credit_operations_stage.raw_credit_fraud FROM '/data/raw_fraud_credit.csv' DELIMITER ',' CSV HEADER;
+        
+[2025-02-05T14:39:17.647+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T14:39:17.711+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T14:39:17.717+0000] {sql.py:450} INFO - Running statement: 
+            COPY dm_credit_operations_stage.raw_credit_fraud FROM '/data/raw_fraud_credit.csv' DELIMITER ',' CSV HEADER;
+        , parameters: None
+[2025-02-05T14:40:12.987+0000] {sql.py:459} INFO - Rows affected: 9291894
+[2025-02-05T14:40:12.990+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T14:40:13.006+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_ingestion_daily-credit_fraud, task_id=bulk_file_load, run_id=manual__2025-02-05T14:39:10.316241+00:00, execution_date=20250205T143910, start_date=20250205T143917, end_date=20250205T144013
+[2025-02-05T14:40:13.041+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T14:40:13.070+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T14:40:13.073+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

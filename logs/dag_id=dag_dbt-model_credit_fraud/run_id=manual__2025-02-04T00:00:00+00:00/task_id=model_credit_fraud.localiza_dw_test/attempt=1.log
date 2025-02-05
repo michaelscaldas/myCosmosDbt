@@ -1,0 +1,476 @@
+[2025-02-05T00:32:40.259+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T00:32:40.272+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T00:32:40.279+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T00:32:40.280+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T00:32:40.290+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtTestLocalOperator): model_credit_fraud.localiza_dw_test> on 2025-02-04 00:00:00+00:00
+[2025-02-05T00:32:40.294+0000] {standard_task_runner.py:63} INFO - Started process 2030 to run task
+[2025-02-05T00:32:40.297+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_credit_fraud', 'model_credit_fraud.localiza_dw_test', 'manual__2025-02-04T00:00:00+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_fraud_credit.py', '--cfg-path', '/tmp/tmpete64r5z']
+[2025-02-05T00:32:40.298+0000] {standard_task_runner.py:91} INFO - Job 41: Subtask model_credit_fraud.localiza_dw_test
+[2025-02-05T00:32:40.343+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [running]> on host eb20c43aeeb4
+[2025-02-05T00:32:40.403+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_credit_fraud' AIRFLOW_CTX_TASK_ID='model_credit_fraud.localiza_dw_test' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-04T00:00:00+00:00'
+[2025-02-05T00:32:40.405+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T00:32:42.206+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T00:32:42.218+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmp615fskhl from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T00:32:42.223+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_credit_fraud__model_credit_fraud/target/partial_parse.msgpack
+[2025-02-05T00:32:42.229+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T00:32:42.237+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T00:32:42.238+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211/profiles.yml.
+[2025-02-05T00:32:42.239+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['test', '--select', 'path:models/marts/credit_fraud path:models/staging/credit_fraud path:snapshots/credit_fraud', '--project-dir', '/tmp/tmp615fskhl', '--profiles-dir', '/tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211', '--profile', '***', '--target', 'prod']
+ in /tmp/tmp615fskhl
+[2025-02-05T00:32:42.255+0000] {logging_mixin.py:188} INFO - 00:32:42  Running with dbt=1.6.1
+[2025-02-05T00:32:42.351+0000] {logging_mixin.py:188} INFO - 00:32:42  Registered adapter: postgres=1.6.1
+[2025-02-05T00:32:42.629+0000] {logging_mixin.py:188} INFO - 00:32:42  Found 3 models, 1 snapshot, 5 tests, 1 source, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T00:32:42.645+0000] {logging_mixin.py:188} INFO - 00:32:42
+[2025-02-05T00:32:42.689+0000] {logging_mixin.py:188} INFO - 00:32:42  Concurrency: 1 threads (target='prod')
+[2025-02-05T00:32:42.691+0000] {logging_mixin.py:188} INFO - 00:32:42
+[2025-02-05T00:32:42.695+0000] {logging_mixin.py:188} INFO - 00:32:42  1 of 5 START test locations .................................................... [RUN]
+[2025-02-05T00:32:42.742+0000] {logging_mixin.py:188} INFO - 00:32:42  1 of 5 PASS locations .......................................................... [PASS in 0.05s]
+[2025-02-05T00:32:42.744+0000] {logging_mixin.py:188} INFO - 00:32:42  2 of 5 START test locations .................................................... [RUN]
+[2025-02-05T00:32:43.800+0000] {logging_mixin.py:188} INFO - 00:32:43  2 of 5 WARN 1 locations ........................................................ [WARN 1 in 1.05s]
+[2025-02-05T00:32:43.803+0000] {logging_mixin.py:188} INFO - 00:32:43  3 of 5 START test not_null_stg_credit_fraud_amount ............................. [RUN]
+[2025-02-05T00:32:46.434+0000] {logging_mixin.py:188} INFO - 00:32:46  3 of 5 WARN 50000 not_null_stg_credit_fraud_amount ............................. [WARN 50000 in 2.63s]
+[2025-02-05T00:32:46.437+0000] {logging_mixin.py:188} INFO - 00:32:46  4 of 5 START test not_null_stg_credit_fraud_risk_score ......................... [RUN]
+[2025-02-05T00:32:48.916+0000] {logging_mixin.py:188} INFO - 00:32:48  4 of 5 WARN 50226 not_null_stg_credit_fraud_risk_score ......................... [WARN 50226 in 2.48s]
+[2025-02-05T00:32:48.918+0000] {logging_mixin.py:188} INFO - 00:32:48  5 of 5 START test not_null_stg_credit_fraud_timestamp .......................... [RUN]
+[2025-02-05T00:32:49.844+0000] {logging_mixin.py:188} INFO - 00:32:49  5 of 5 PASS not_null_stg_credit_fraud_timestamp ................................ [PASS in 0.92s]
+[2025-02-05T00:32:49.863+0000] {logging_mixin.py:188} INFO - 00:32:49
+[2025-02-05T00:32:49.865+0000] {logging_mixin.py:188} INFO - 00:32:49  Finished running 5 tests in 0 hours 0 minutes and 7.22 seconds (7.22s).
+[2025-02-05T00:32:49.879+0000] {logging_mixin.py:188} INFO - 00:32:49
+[2025-02-05T00:32:49.881+0000] {logging_mixin.py:188} INFO - 00:32:49  Completed with 3 warnings:
+[2025-02-05T00:32:49.883+0000] {logging_mixin.py:188} INFO - 00:32:49
+[2025-02-05T00:32:49.884+0000] {logging_mixin.py:188} INFO - 00:32:49  Warning in test locations (models/staging/credit_fraud/schema.yml)
+[2025-02-05T00:32:49.885+0000] {logging_mixin.py:188} INFO - 00:32:49  Got 1 result, configured to warn if != 0
+[2025-02-05T00:32:49.886+0000] {logging_mixin.py:188} INFO - 00:32:49
+[2025-02-05T00:32:49.888+0000] {logging_mixin.py:188} INFO - 00:32:49    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/locations.sql
+[2025-02-05T00:32:49.889+0000] {logging_mixin.py:188} INFO - 00:32:49
+[2025-02-05T00:32:49.892+0000] {logging_mixin.py:188} INFO - 00:32:49  Warning in test not_null_stg_credit_fraud_amount (models/staging/credit_fraud/schema.yml)
+[2025-02-05T00:32:49.893+0000] {logging_mixin.py:188} INFO - 00:32:49  Got 50000 results, configured to warn if != 0
+[2025-02-05T00:32:49.895+0000] {logging_mixin.py:188} INFO - 00:32:49
+[2025-02-05T00:32:49.896+0000] {logging_mixin.py:188} INFO - 00:32:49    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_amount.sql
+[2025-02-05T00:32:49.898+0000] {logging_mixin.py:188} INFO - 00:32:49
+[2025-02-05T00:32:49.899+0000] {logging_mixin.py:188} INFO - 00:32:49  Warning in test not_null_stg_credit_fraud_risk_score (models/staging/credit_fraud/schema.yml)
+[2025-02-05T00:32:49.901+0000] {logging_mixin.py:188} INFO - 00:32:49  Got 50226 results, configured to warn if != 0
+[2025-02-05T00:32:49.902+0000] {logging_mixin.py:188} INFO - 00:32:49
+[2025-02-05T00:32:49.903+0000] {logging_mixin.py:188} INFO - 00:32:49    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_risk_score.sql
+[2025-02-05T00:32:49.904+0000] {logging_mixin.py:188} INFO - 00:32:49
+[2025-02-05T00:32:49.905+0000] {logging_mixin.py:188} INFO - 00:32:49  Done. PASS=2 WARN=3 ERROR=0 SKIP=0 TOTAL=5
+[2025-02-05T00:32:50.632+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T00:32:50.664+0000] {local.py:494} INFO - Inlets: [Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.agg_locations_risk_score', extra=None), Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.stg_credit_fraud', extra=None)]
+[2025-02-05T00:32:50.665+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T00:32:50.665+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T00:32:50.666+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T00:32:50.678+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_credit_fraud to None, run_after=None
+[2025-02-05T00:32:50.703+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T00:32:50.718+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_credit_fraud, task_id=model_credit_fraud.***_test, run_id=manual__2025-02-04T00:00:00+00:00, execution_date=20250204T000000, start_date=20250205T003240, end_date=20250205T003250
+[2025-02-05T00:32:50.742+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T00:32:50.753+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T00:32:50.755+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-02-05T01:56:03.142+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T01:56:03.156+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T01:56:03.163+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T01:56:03.163+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T01:56:03.174+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtTestLocalOperator): model_credit_fraud.localiza_dw_test> on 2025-02-04 00:00:00+00:00
+[2025-02-05T01:56:03.179+0000] {standard_task_runner.py:63} INFO - Started process 229 to run task
+[2025-02-05T01:56:03.182+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_credit_fraud', 'model_credit_fraud.localiza_dw_test', 'manual__2025-02-04T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_fraud_credit.py', '--cfg-path', '/tmp/tmptx092dal']
+[2025-02-05T01:56:03.183+0000] {standard_task_runner.py:91} INFO - Job 11: Subtask model_credit_fraud.localiza_dw_test
+[2025-02-05T01:56:03.224+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [running]> on host e647bfd7b2d2
+[2025-02-05T01:56:03.311+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_credit_fraud' AIRFLOW_CTX_TASK_ID='model_credit_fraud.localiza_dw_test' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-04T00:00:00+00:00'
+[2025-02-05T01:56:03.313+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T01:56:05.823+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T01:56:05.825+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmp_ud9igg0 from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T01:56:05.829+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_credit_fraud__model_credit_fraud/target/partial_parse.msgpack
+[2025-02-05T01:56:05.833+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T01:56:05.842+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T01:56:05.843+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211/profiles.yml.
+[2025-02-05T01:56:05.844+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['test', '--select', 'path:models/marts/credit_fraud path:models/staging/credit_fraud path:snapshots/credit_fraud', '--project-dir', '/tmp/tmp_ud9igg0', '--profiles-dir', '/tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211', '--profile', '***', '--target', 'prod']
+ in /tmp/tmp_ud9igg0
+[2025-02-05T01:56:05.861+0000] {logging_mixin.py:188} INFO - 01:56:05  Running with dbt=1.6.1
+[2025-02-05T01:56:05.960+0000] {logging_mixin.py:188} INFO - 01:56:05  Registered adapter: postgres=1.6.1
+[2025-02-05T01:56:06.302+0000] {logging_mixin.py:188} INFO - 01:56:06  Found 3 models, 1 snapshot, 5 tests, 1 source, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T01:56:06.327+0000] {logging_mixin.py:188} INFO - 01:56:06
+[2025-02-05T01:56:06.373+0000] {logging_mixin.py:188} INFO - 01:56:06  Concurrency: 1 threads (target='prod')
+[2025-02-05T01:56:06.373+0000] {logging_mixin.py:188} INFO - 01:56:06
+[2025-02-05T01:56:06.376+0000] {logging_mixin.py:188} INFO - 01:56:06  1 of 5 START test locations .................................................... [RUN]
+[2025-02-05T01:56:06.424+0000] {logging_mixin.py:188} INFO - 01:56:06  1 of 5 PASS locations .......................................................... [PASS in 0.05s]
+[2025-02-05T01:56:06.426+0000] {logging_mixin.py:188} INFO - 01:56:06  2 of 5 START test locations .................................................... [RUN]
+[2025-02-05T01:56:07.380+0000] {logging_mixin.py:188} INFO - 01:56:07  2 of 5 WARN 1 locations ........................................................ [WARN 1 in 0.95s]
+[2025-02-05T01:56:07.383+0000] {logging_mixin.py:188} INFO - 01:56:07  3 of 5 START test not_null_stg_credit_fraud_amount ............................. [RUN]
+[2025-02-05T01:56:09.878+0000] {logging_mixin.py:188} INFO - 01:56:09  3 of 5 WARN 50000 not_null_stg_credit_fraud_amount ............................. [WARN 50000 in 2.49s]
+[2025-02-05T01:56:09.881+0000] {logging_mixin.py:188} INFO - 01:56:09  4 of 5 START test not_null_stg_credit_fraud_risk_score ......................... [RUN]
+[2025-02-05T01:56:12.296+0000] {logging_mixin.py:188} INFO - 01:56:12  4 of 5 WARN 50226 not_null_stg_credit_fraud_risk_score ......................... [WARN 50226 in 2.41s]
+[2025-02-05T01:56:12.299+0000] {logging_mixin.py:188} INFO - 01:56:12  5 of 5 START test not_null_stg_credit_fraud_timestamp .......................... [RUN]
+[2025-02-05T01:56:13.255+0000] {logging_mixin.py:188} INFO - 01:56:13  5 of 5 PASS not_null_stg_credit_fraud_timestamp ................................ [PASS in 0.95s]
+[2025-02-05T01:56:13.272+0000] {logging_mixin.py:188} INFO - 01:56:13
+[2025-02-05T01:56:13.273+0000] {logging_mixin.py:188} INFO - 01:56:13  Finished running 5 tests in 0 hours 0 minutes and 6.94 seconds (6.94s).
+[2025-02-05T01:56:13.284+0000] {logging_mixin.py:188} INFO - 01:56:13
+[2025-02-05T01:56:13.284+0000] {logging_mixin.py:188} INFO - 01:56:13  Completed with 3 warnings:
+[2025-02-05T01:56:13.285+0000] {logging_mixin.py:188} INFO - 01:56:13
+[2025-02-05T01:56:13.286+0000] {logging_mixin.py:188} INFO - 01:56:13  Warning in test locations (models/staging/credit_fraud/schema.yml)
+[2025-02-05T01:56:13.287+0000] {logging_mixin.py:188} INFO - 01:56:13  Got 1 result, configured to warn if != 0
+[2025-02-05T01:56:13.288+0000] {logging_mixin.py:188} INFO - 01:56:13
+[2025-02-05T01:56:13.289+0000] {logging_mixin.py:188} INFO - 01:56:13    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/locations.sql
+[2025-02-05T01:56:13.290+0000] {logging_mixin.py:188} INFO - 01:56:13
+[2025-02-05T01:56:13.291+0000] {logging_mixin.py:188} INFO - 01:56:13  Warning in test not_null_stg_credit_fraud_amount (models/staging/credit_fraud/schema.yml)
+[2025-02-05T01:56:13.292+0000] {logging_mixin.py:188} INFO - 01:56:13  Got 50000 results, configured to warn if != 0
+[2025-02-05T01:56:13.293+0000] {logging_mixin.py:188} INFO - 01:56:13
+[2025-02-05T01:56:13.294+0000] {logging_mixin.py:188} INFO - 01:56:13    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_amount.sql
+[2025-02-05T01:56:13.296+0000] {logging_mixin.py:188} INFO - 01:56:13
+[2025-02-05T01:56:13.297+0000] {logging_mixin.py:188} INFO - 01:56:13  Warning in test not_null_stg_credit_fraud_risk_score (models/staging/credit_fraud/schema.yml)
+[2025-02-05T01:56:13.297+0000] {logging_mixin.py:188} INFO - 01:56:13  Got 50226 results, configured to warn if != 0
+[2025-02-05T01:56:13.298+0000] {logging_mixin.py:188} INFO - 01:56:13
+[2025-02-05T01:56:13.299+0000] {logging_mixin.py:188} INFO - 01:56:13    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_risk_score.sql
+[2025-02-05T01:56:13.299+0000] {logging_mixin.py:188} INFO - 01:56:13
+[2025-02-05T01:56:13.300+0000] {logging_mixin.py:188} INFO - 01:56:13  Done. PASS=2 WARN=3 ERROR=0 SKIP=0 TOTAL=5
+[2025-02-05T01:56:14.038+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T01:56:14.086+0000] {local.py:494} INFO - Inlets: [Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.agg_locations_risk_score', extra=None), Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.stg_credit_fraud', extra=None)]
+[2025-02-05T01:56:14.086+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T01:56:14.087+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T01:56:14.088+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T01:56:14.103+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_credit_fraud to None, run_after=None
+[2025-02-05T01:56:14.133+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T01:56:14.158+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_credit_fraud, task_id=model_credit_fraud.***_test, run_id=manual__2025-02-04T00:00:00+00:00, execution_date=20250204T000000, start_date=20250205T015603, end_date=20250205T015614
+[2025-02-05T01:56:14.219+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T01:56:14.237+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T01:56:14.241+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-02-05T14:07:31.464+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T14:07:31.485+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T14:07:31.502+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T14:07:31.503+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T14:07:31.522+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtTestLocalOperator): model_credit_fraud.localiza_dw_test> on 2025-02-04 00:00:00+00:00
+[2025-02-05T14:07:31.529+0000] {standard_task_runner.py:63} INFO - Started process 4705 to run task
+[2025-02-05T14:07:31.532+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_credit_fraud', 'model_credit_fraud.localiza_dw_test', 'manual__2025-02-04T00:00:00+00:00', '--job-id', '139', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_fraud_credit.py', '--cfg-path', '/tmp/tmp812gm7yp']
+[2025-02-05T14:07:31.534+0000] {standard_task_runner.py:91} INFO - Job 139: Subtask model_credit_fraud.localiza_dw_test
+[2025-02-05T14:07:31.615+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [running]> on host 98025f4a542d
+[2025-02-05T14:07:31.737+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_credit_fraud' AIRFLOW_CTX_TASK_ID='model_credit_fraud.localiza_dw_test' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-04T00:00:00+00:00'
+[2025-02-05T14:07:31.740+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T14:07:35.224+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T14:07:35.226+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmp5yaw0gtz from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T14:07:35.237+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_credit_fraud__model_credit_fraud/target/partial_parse.msgpack
+[2025-02-05T14:07:35.246+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T14:07:35.262+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T14:07:35.265+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211/profiles.yml.
+[2025-02-05T14:07:35.266+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['test', '--select', 'path:models/marts/credit_fraud path:models/staging/credit_fraud path:snapshots/credit_fraud', '--project-dir', '/tmp/tmp5yaw0gtz', '--profiles-dir', '/tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211', '--profile', '***', '--target', 'prod']
+ in /tmp/tmp5yaw0gtz
+[2025-02-05T14:07:35.294+0000] {logging_mixin.py:188} INFO - 14:07:35  Running with dbt=1.6.1
+[2025-02-05T14:07:35.484+0000] {logging_mixin.py:188} INFO - 14:07:35  Registered adapter: postgres=1.6.1
+[2025-02-05T14:07:36.396+0000] {logging_mixin.py:188} INFO - 14:07:36  Found 4 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T14:07:36.438+0000] {logging_mixin.py:188} INFO - 14:07:36
+[2025-02-05T14:07:36.507+0000] {logging_mixin.py:188} INFO - 14:07:36  Concurrency: 1 threads (target='prod')
+[2025-02-05T14:07:36.509+0000] {logging_mixin.py:188} INFO - 14:07:36
+[2025-02-05T14:07:36.515+0000] {logging_mixin.py:188} INFO - 14:07:36  1 of 5 START test locations .................................................... [RUN]
+[2025-02-05T14:07:36.593+0000] {logging_mixin.py:188} INFO - 14:07:36  1 of 5 PASS locations .......................................................... [PASS in 0.08s]
+[2025-02-05T14:07:36.599+0000] {logging_mixin.py:188} INFO - 14:07:36  2 of 5 START test locations .................................................... [RUN]
+[2025-02-05T14:07:38.010+0000] {logging_mixin.py:188} INFO - 14:07:38  2 of 5 WARN 1 locations ........................................................ [WARN 1 in 1.41s]
+[2025-02-05T14:07:38.014+0000] {logging_mixin.py:188} INFO - 14:07:38  3 of 5 START test not_null_stg_credit_fraud_amount ............................. [RUN]
+[2025-02-05T14:07:41.807+0000] {logging_mixin.py:188} INFO - 14:07:41  3 of 5 WARN 50000 not_null_stg_credit_fraud_amount ............................. [WARN 50000 in 3.79s]
+[2025-02-05T14:07:41.813+0000] {logging_mixin.py:188} INFO - 14:07:41  4 of 5 START test not_null_stg_credit_fraud_risk_score ......................... [RUN]
+[2025-02-05T14:07:45.473+0000] {logging_mixin.py:188} INFO - 14:07:45  4 of 5 WARN 50226 not_null_stg_credit_fraud_risk_score ......................... [WARN 50226 in 3.66s]
+[2025-02-05T14:07:45.479+0000] {logging_mixin.py:188} INFO - 14:07:45  5 of 5 START test not_null_stg_credit_fraud_timestamp .......................... [RUN]
+[2025-02-05T14:07:46.725+0000] {logging_mixin.py:188} INFO - 14:07:46  5 of 5 PASS not_null_stg_credit_fraud_timestamp ................................ [PASS in 1.24s]
+[2025-02-05T14:07:46.750+0000] {logging_mixin.py:188} INFO - 14:07:46
+[2025-02-05T14:07:46.752+0000] {logging_mixin.py:188} INFO - 14:07:46  Finished running 5 tests in 0 hours 0 minutes and 10.31 seconds (10.31s).
+[2025-02-05T14:07:46.768+0000] {logging_mixin.py:188} INFO - 14:07:46
+[2025-02-05T14:07:46.770+0000] {logging_mixin.py:188} INFO - 14:07:46  Completed with 3 warnings:
+[2025-02-05T14:07:46.771+0000] {logging_mixin.py:188} INFO - 14:07:46
+[2025-02-05T14:07:46.772+0000] {logging_mixin.py:188} INFO - 14:07:46  Warning in test locations (models/staging/credit_fraud/schema.yml)
+[2025-02-05T14:07:46.774+0000] {logging_mixin.py:188} INFO - 14:07:46  Got 1 result, configured to warn if != 0
+[2025-02-05T14:07:46.776+0000] {logging_mixin.py:188} INFO - 14:07:46
+[2025-02-05T14:07:46.777+0000] {logging_mixin.py:188} INFO - 14:07:46    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/locations.sql
+[2025-02-05T14:07:46.778+0000] {logging_mixin.py:188} INFO - 14:07:46
+[2025-02-05T14:07:46.780+0000] {logging_mixin.py:188} INFO - 14:07:46  Warning in test not_null_stg_credit_fraud_amount (models/staging/credit_fraud/schema.yml)
+[2025-02-05T14:07:46.781+0000] {logging_mixin.py:188} INFO - 14:07:46  Got 50000 results, configured to warn if != 0
+[2025-02-05T14:07:46.782+0000] {logging_mixin.py:188} INFO - 14:07:46
+[2025-02-05T14:07:46.784+0000] {logging_mixin.py:188} INFO - 14:07:46    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_amount.sql
+[2025-02-05T14:07:46.785+0000] {logging_mixin.py:188} INFO - 14:07:46
+[2025-02-05T14:07:46.787+0000] {logging_mixin.py:188} INFO - 14:07:46  Warning in test not_null_stg_credit_fraud_risk_score (models/staging/credit_fraud/schema.yml)
+[2025-02-05T14:07:46.788+0000] {logging_mixin.py:188} INFO - 14:07:46  Got 50226 results, configured to warn if != 0
+[2025-02-05T14:07:46.789+0000] {logging_mixin.py:188} INFO - 14:07:46
+[2025-02-05T14:07:46.791+0000] {logging_mixin.py:188} INFO - 14:07:46    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_risk_score.sql
+[2025-02-05T14:07:46.793+0000] {logging_mixin.py:188} INFO - 14:07:46
+[2025-02-05T14:07:46.794+0000] {logging_mixin.py:188} INFO - 14:07:46  Done. PASS=2 WARN=3 ERROR=0 SKIP=0 TOTAL=5
+[2025-02-05T14:07:45.841+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T14:07:45.897+0000] {local.py:494} INFO - Inlets: [Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.agg_locations_risk_score', extra=None), Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.stg_credit_fraud', extra=None)]
+[2025-02-05T14:07:45.898+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T14:07:45.899+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T14:07:45.900+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T14:07:45.924+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_credit_fraud to None, run_after=None
+[2025-02-05T14:07:45.975+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T14:07:46.003+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_credit_fraud, task_id=model_credit_fraud.***_test, run_id=manual__2025-02-04T00:00:00+00:00, execution_date=20250204T000000, start_date=20250205T140731, end_date=20250205T140746
+[2025-02-05T14:07:46.052+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T14:07:46.076+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T14:07:46.080+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-02-05T14:33:23.121+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T14:33:23.138+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T14:33:23.150+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T14:33:23.151+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T14:33:23.165+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtTestLocalOperator): model_credit_fraud.localiza_dw_test> on 2025-02-04 00:00:00+00:00
+[2025-02-05T14:33:23.171+0000] {standard_task_runner.py:63} INFO - Started process 365 to run task
+[2025-02-05T14:33:23.174+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_credit_fraud', 'model_credit_fraud.localiza_dw_test', 'manual__2025-02-04T00:00:00+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_fraud_credit.py', '--cfg-path', '/tmp/tmpyv0vmw8j']
+[2025-02-05T14:33:23.176+0000] {standard_task_runner.py:91} INFO - Job 17: Subtask model_credit_fraud.localiza_dw_test
+[2025-02-05T14:33:23.235+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [running]> on host eb17fa5f9c23
+[2025-02-05T14:33:23.334+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_credit_fraud' AIRFLOW_CTX_TASK_ID='model_credit_fraud.localiza_dw_test' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-04T00:00:00+00:00'
+[2025-02-05T14:33:23.336+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T14:33:25.933+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T14:33:25.935+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmpqjsocq2n from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T14:33:25.943+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_credit_fraud__model_credit_fraud/target/partial_parse.msgpack
+[2025-02-05T14:33:25.950+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T14:33:25.961+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T14:33:25.962+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211/profiles.yml.
+[2025-02-05T14:33:25.963+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['test', '--select', 'path:models/marts/credit_fraud path:models/staging/credit_fraud path:snapshots/credit_fraud', '--project-dir', '/tmp/tmpqjsocq2n', '--profiles-dir', '/tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211', '--profile', '***', '--target', 'prod']
+ in /tmp/tmpqjsocq2n
+[2025-02-05T14:33:25.983+0000] {logging_mixin.py:188} INFO - 14:33:25  Running with dbt=1.6.1
+[2025-02-05T14:33:26.109+0000] {logging_mixin.py:188} INFO - 14:33:26  Registered adapter: postgres=1.6.1
+[2025-02-05T14:33:26.660+0000] {logging_mixin.py:188} INFO - 14:33:26  Found 4 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T14:33:26.681+0000] {logging_mixin.py:188} INFO - 14:33:26
+[2025-02-05T14:33:26.752+0000] {logging_mixin.py:188} INFO - 14:33:26  Concurrency: 1 threads (target='prod')
+[2025-02-05T14:33:26.753+0000] {logging_mixin.py:188} INFO - 14:33:26
+[2025-02-05T14:33:26.759+0000] {logging_mixin.py:188} INFO - 14:33:26  1 of 5 START test locations .................................................... [RUN]
+[2025-02-05T14:33:26.816+0000] {logging_mixin.py:188} INFO - 14:33:26  1 of 5 PASS locations .......................................................... [PASS in 0.06s]
+[2025-02-05T14:33:26.819+0000] {logging_mixin.py:188} INFO - 14:33:26  2 of 5 START test locations .................................................... [RUN]
+[2025-02-05T14:33:28.138+0000] {logging_mixin.py:188} INFO - 14:33:28  2 of 5 WARN 1 locations ........................................................ [WARN 1 in 1.32s]
+[2025-02-05T14:33:28.143+0000] {logging_mixin.py:188} INFO - 14:33:28  3 of 5 START test not_null_stg_credit_fraud_amount ............................. [RUN]
+[2025-02-05T14:33:30.844+0000] {logging_mixin.py:188} INFO - 14:33:30  3 of 5 WARN 50000 not_null_stg_credit_fraud_amount ............................. [WARN 50000 in 2.70s]
+[2025-02-05T14:33:30.849+0000] {logging_mixin.py:188} INFO - 14:33:30  4 of 5 START test not_null_stg_credit_fraud_risk_score ......................... [RUN]
+[2025-02-05T14:33:33.698+0000] {logging_mixin.py:188} INFO - 14:33:33  4 of 5 WARN 50226 not_null_stg_credit_fraud_risk_score ......................... [WARN 50226 in 2.85s]
+[2025-02-05T14:33:33.701+0000] {logging_mixin.py:188} INFO - 14:33:33  5 of 5 START test not_null_stg_credit_fraud_timestamp .......................... [RUN]
+[2025-02-05T14:33:34.830+0000] {logging_mixin.py:188} INFO - 14:33:34  5 of 5 PASS not_null_stg_credit_fraud_timestamp ................................ [PASS in 1.13s]
+[2025-02-05T14:33:34.862+0000] {logging_mixin.py:188} INFO - 14:33:34
+[2025-02-05T14:33:34.866+0000] {logging_mixin.py:188} INFO - 14:33:34  Finished running 5 tests in 0 hours 0 minutes and 8.18 seconds (8.18s).
+[2025-02-05T14:33:34.884+0000] {logging_mixin.py:188} INFO - 14:33:34
+[2025-02-05T14:33:34.886+0000] {logging_mixin.py:188} INFO - 14:33:34  Completed with 3 warnings:
+[2025-02-05T14:33:34.887+0000] {logging_mixin.py:188} INFO - 14:33:34
+[2025-02-05T14:33:34.888+0000] {logging_mixin.py:188} INFO - 14:33:34  Warning in test locations (models/staging/credit_fraud/schema.yml)
+[2025-02-05T14:33:34.890+0000] {logging_mixin.py:188} INFO - 14:33:34  Got 1 result, configured to warn if != 0
+[2025-02-05T14:33:34.892+0000] {logging_mixin.py:188} INFO - 14:33:34
+[2025-02-05T14:33:34.893+0000] {logging_mixin.py:188} INFO - 14:33:34    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/locations.sql
+[2025-02-05T14:33:34.894+0000] {logging_mixin.py:188} INFO - 14:33:34
+[2025-02-05T14:33:34.895+0000] {logging_mixin.py:188} INFO - 14:33:34  Warning in test not_null_stg_credit_fraud_amount (models/staging/credit_fraud/schema.yml)
+[2025-02-05T14:33:34.897+0000] {logging_mixin.py:188} INFO - 14:33:34  Got 50000 results, configured to warn if != 0
+[2025-02-05T14:33:34.900+0000] {logging_mixin.py:188} INFO - 14:33:34
+[2025-02-05T14:33:34.901+0000] {logging_mixin.py:188} INFO - 14:33:34    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_amount.sql
+[2025-02-05T14:33:34.902+0000] {logging_mixin.py:188} INFO - 14:33:34
+[2025-02-05T14:33:34.904+0000] {logging_mixin.py:188} INFO - 14:33:34  Warning in test not_null_stg_credit_fraud_risk_score (models/staging/credit_fraud/schema.yml)
+[2025-02-05T14:33:34.905+0000] {logging_mixin.py:188} INFO - 14:33:34  Got 50226 results, configured to warn if != 0
+[2025-02-05T14:33:34.907+0000] {logging_mixin.py:188} INFO - 14:33:34
+[2025-02-05T14:33:34.908+0000] {logging_mixin.py:188} INFO - 14:33:34    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_risk_score.sql
+[2025-02-05T14:33:34.910+0000] {logging_mixin.py:188} INFO - 14:33:34
+[2025-02-05T14:33:34.911+0000] {logging_mixin.py:188} INFO - 14:33:34  Done. PASS=2 WARN=3 ERROR=0 SKIP=0 TOTAL=5
+[2025-02-05T14:33:35.683+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T14:33:35.730+0000] {local.py:494} INFO - Inlets: [Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.agg_locations_risk_score', extra=None), Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.stg_credit_fraud', extra=None)]
+[2025-02-05T14:33:35.731+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T14:33:35.732+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T14:33:35.733+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T14:33:35.748+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_credit_fraud to None, run_after=None
+[2025-02-05T14:33:35.773+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T14:33:35.795+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_credit_fraud, task_id=model_credit_fraud.***_test, run_id=manual__2025-02-04T00:00:00+00:00, execution_date=20250204T000000, start_date=20250205T143323, end_date=20250205T143335
+[2025-02-05T14:33:35.852+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T14:33:35.871+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T14:33:35.874+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-02-05T14:57:37.834+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T14:57:37.849+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T14:57:37.858+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T14:57:37.859+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T14:57:37.868+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtTestLocalOperator): model_credit_fraud.localiza_dw_test> on 2025-02-04 00:00:00+00:00
+[2025-02-05T14:57:37.874+0000] {standard_task_runner.py:63} INFO - Started process 316 to run task
+[2025-02-05T14:57:37.876+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_credit_fraud', 'model_credit_fraud.localiza_dw_test', 'manual__2025-02-04T00:00:00+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_fraud_credit.py', '--cfg-path', '/tmp/tmp9ad47qds']
+[2025-02-05T14:57:37.877+0000] {standard_task_runner.py:91} INFO - Job 15: Subtask model_credit_fraud.localiza_dw_test
+[2025-02-05T14:57:37.924+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [running]> on host 7c7f80fafcb7
+[2025-02-05T14:57:37.990+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_credit_fraud' AIRFLOW_CTX_TASK_ID='model_credit_fraud.localiza_dw_test' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-04T00:00:00+00:00'
+[2025-02-05T14:57:37.992+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T14:57:40.205+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T14:57:40.206+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmp9sy7s5dx from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T14:57:40.219+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_credit_fraud__model_credit_fraud/target/partial_parse.msgpack
+[2025-02-05T14:57:40.225+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T14:57:40.232+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T14:57:40.234+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211/profiles.yml.
+[2025-02-05T14:57:40.234+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['test', '--select', 'path:models/staging/credit_fraud path:models/marts/credit_fraud path:snapshots/credit_fraud', '--project-dir', '/tmp/tmp9sy7s5dx', '--profiles-dir', '/tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211', '--profile', '***', '--target', 'prod']
+ in /tmp/tmp9sy7s5dx
+[2025-02-05T14:57:40.251+0000] {logging_mixin.py:188} INFO - 14:57:40  Running with dbt=1.6.1
+[2025-02-05T14:57:40.367+0000] {logging_mixin.py:188} INFO - 14:57:40  Registered adapter: postgres=1.6.1
+[2025-02-05T14:57:40.945+0000] {logging_mixin.py:188} INFO - 14:57:40  Found 4 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T14:57:40.969+0000] {logging_mixin.py:188} INFO - 14:57:40
+[2025-02-05T14:57:41.017+0000] {logging_mixin.py:188} INFO - 14:57:41  Concurrency: 1 threads (target='prod')
+[2025-02-05T14:57:41.018+0000] {logging_mixin.py:188} INFO - 14:57:41
+[2025-02-05T14:57:41.021+0000] {logging_mixin.py:188} INFO - 14:57:41  1 of 5 START test locations .................................................... [RUN]
+[2025-02-05T14:57:41.062+0000] {logging_mixin.py:188} INFO - 14:57:41  1 of 5 PASS locations .......................................................... [PASS in 0.04s]
+[2025-02-05T14:57:41.065+0000] {logging_mixin.py:188} INFO - 14:57:41  2 of 5 START test locations .................................................... [RUN]
+[2025-02-05T14:57:42.048+0000] {logging_mixin.py:188} INFO - 14:57:42  2 of 5 WARN 1 locations ........................................................ [WARN 1 in 0.98s]
+[2025-02-05T14:57:42.051+0000] {logging_mixin.py:188} INFO - 14:57:42  3 of 5 START test not_null_stg_credit_fraud_amount ............................. [RUN]
+[2025-02-05T14:57:42.919+0000] {logging_mixin.py:188} INFO - 14:57:42  3 of 5 WARN 50000 not_null_stg_credit_fraud_amount ............................. [WARN 50000 in 0.87s]
+[2025-02-05T14:57:42.923+0000] {logging_mixin.py:188} INFO - 14:57:42  4 of 5 START test not_null_stg_credit_fraud_risk_score ......................... [RUN]
+[2025-02-05T14:57:45.668+0000] {logging_mixin.py:188} INFO - 14:57:45  4 of 5 WARN 50226 not_null_stg_credit_fraud_risk_score ......................... [WARN 50226 in 2.74s]
+[2025-02-05T14:57:45.672+0000] {logging_mixin.py:188} INFO - 14:57:45  5 of 5 START test not_null_stg_credit_fraud_timestamp .......................... [RUN]
+[2025-02-05T14:57:46.712+0000] {logging_mixin.py:188} INFO - 14:57:46  5 of 5 PASS not_null_stg_credit_fraud_timestamp ................................ [PASS in 1.04s]
+[2025-02-05T14:57:46.727+0000] {logging_mixin.py:188} INFO - 14:57:46
+[2025-02-05T14:57:46.729+0000] {logging_mixin.py:188} INFO - 14:57:46  Finished running 5 tests in 0 hours 0 minutes and 5.76 seconds (5.76s).
+[2025-02-05T14:57:46.739+0000] {logging_mixin.py:188} INFO - 14:57:46
+[2025-02-05T14:57:46.741+0000] {logging_mixin.py:188} INFO - 14:57:46  Completed with 3 warnings:
+[2025-02-05T14:57:46.742+0000] {logging_mixin.py:188} INFO - 14:57:46
+[2025-02-05T14:57:46.743+0000] {logging_mixin.py:188} INFO - 14:57:46  Warning in test locations (models/staging/credit_fraud/schema.yml)
+[2025-02-05T14:57:46.744+0000] {logging_mixin.py:188} INFO - 14:57:46  Got 1 result, configured to warn if != 0
+[2025-02-05T14:57:46.745+0000] {logging_mixin.py:188} INFO - 14:57:46
+[2025-02-05T14:57:46.746+0000] {logging_mixin.py:188} INFO - 14:57:46    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/locations.sql
+[2025-02-05T14:57:46.747+0000] {logging_mixin.py:188} INFO - 14:57:46
+[2025-02-05T14:57:46.748+0000] {logging_mixin.py:188} INFO - 14:57:46  Warning in test not_null_stg_credit_fraud_amount (models/staging/credit_fraud/schema.yml)
+[2025-02-05T14:57:46.749+0000] {logging_mixin.py:188} INFO - 14:57:46  Got 50000 results, configured to warn if != 0
+[2025-02-05T14:57:46.750+0000] {logging_mixin.py:188} INFO - 14:57:46
+[2025-02-05T14:57:46.751+0000] {logging_mixin.py:188} INFO - 14:57:46    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_amount.sql
+[2025-02-05T14:57:46.752+0000] {logging_mixin.py:188} INFO - 14:57:46
+[2025-02-05T14:57:46.753+0000] {logging_mixin.py:188} INFO - 14:57:46  Warning in test not_null_stg_credit_fraud_risk_score (models/staging/credit_fraud/schema.yml)
+[2025-02-05T14:57:46.755+0000] {logging_mixin.py:188} INFO - 14:57:46  Got 50226 results, configured to warn if != 0
+[2025-02-05T14:57:46.756+0000] {logging_mixin.py:188} INFO - 14:57:46
+[2025-02-05T14:57:46.757+0000] {logging_mixin.py:188} INFO - 14:57:46    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_risk_score.sql
+[2025-02-05T14:57:46.758+0000] {logging_mixin.py:188} INFO - 14:57:46
+[2025-02-05T14:57:46.759+0000] {logging_mixin.py:188} INFO - 14:57:46  Done. PASS=2 WARN=3 ERROR=0 SKIP=0 TOTAL=5
+[2025-02-05T14:57:47.594+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T14:57:47.628+0000] {local.py:494} INFO - Inlets: [Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.agg_locations_risk_score', extra=None), Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.stg_credit_fraud', extra=None)]
+[2025-02-05T14:57:47.629+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T14:57:47.629+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T14:57:47.630+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T14:57:47.642+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_credit_fraud to None, run_after=None
+[2025-02-05T14:57:47.663+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T14:57:47.692+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_credit_fraud, task_id=model_credit_fraud.***_test, run_id=manual__2025-02-04T00:00:00+00:00, execution_date=20250204T000000, start_date=20250205T145737, end_date=20250205T145747
+[2025-02-05T14:57:47.946+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T14:57:47.959+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T14:57:47.961+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-02-05T15:09:13.849+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T15:09:13.863+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T15:09:13.873+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T15:09:13.873+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T15:09:13.885+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtTestLocalOperator): model_credit_fraud.localiza_dw_test> on 2025-02-04 00:00:00+00:00
+[2025-02-05T15:09:13.889+0000] {standard_task_runner.py:63} INFO - Started process 316 to run task
+[2025-02-05T15:09:13.892+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_credit_fraud', 'model_credit_fraud.localiza_dw_test', 'manual__2025-02-04T00:00:00+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_fraud_credit.py', '--cfg-path', '/tmp/tmpjf34h7uo']
+[2025-02-05T15:09:13.893+0000] {standard_task_runner.py:91} INFO - Job 15: Subtask model_credit_fraud.localiza_dw_test
+[2025-02-05T15:09:13.936+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [running]> on host 5c897c3a2254
+[2025-02-05T15:09:14.011+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_credit_fraud' AIRFLOW_CTX_TASK_ID='model_credit_fraud.localiza_dw_test' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-04T00:00:00+00:00'
+[2025-02-05T15:09:14.013+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T15:09:16.436+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T15:09:16.437+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmpnw90_9w6 from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T15:09:16.446+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_credit_fraud__model_credit_fraud/target/partial_parse.msgpack
+[2025-02-05T15:09:16.452+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T15:09:16.461+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T15:09:16.462+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211/profiles.yml.
+[2025-02-05T15:09:16.463+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['test', '--select', 'path:models/staging/credit_fraud path:models/marts/credit_fraud path:snapshots/credit_fraud', '--project-dir', '/tmp/tmpnw90_9w6', '--profiles-dir', '/tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211', '--profile', '***', '--target', 'prod']
+ in /tmp/tmpnw90_9w6
+[2025-02-05T15:09:16.484+0000] {logging_mixin.py:188} INFO - 15:09:16  Running with dbt=1.6.1
+[2025-02-05T15:09:16.598+0000] {logging_mixin.py:188} INFO - 15:09:16  Registered adapter: postgres=1.6.1
+[2025-02-05T15:09:17.144+0000] {logging_mixin.py:188} INFO - 15:09:17  Found 4 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T15:09:17.181+0000] {logging_mixin.py:188} INFO - 15:09:17
+[2025-02-05T15:09:17.266+0000] {logging_mixin.py:188} INFO - 15:09:17  Concurrency: 1 threads (target='prod')
+[2025-02-05T15:09:17.268+0000] {logging_mixin.py:188} INFO - 15:09:17
+[2025-02-05T15:09:17.275+0000] {logging_mixin.py:188} INFO - 15:09:17  1 of 5 START test locations .................................................... [RUN]
+[2025-02-05T15:09:17.344+0000] {logging_mixin.py:188} INFO - 15:09:17  1 of 5 PASS locations .......................................................... [PASS in 0.07s]
+[2025-02-05T15:09:17.348+0000] {logging_mixin.py:188} INFO - 15:09:17  2 of 5 START test locations .................................................... [RUN]
+[2025-02-05T15:09:18.450+0000] {logging_mixin.py:188} INFO - 15:09:18  2 of 5 WARN 1 locations ........................................................ [WARN 1 in 1.10s]
+[2025-02-05T15:09:18.454+0000] {logging_mixin.py:188} INFO - 15:09:18  3 of 5 START test not_null_stg_credit_fraud_amount ............................. [RUN]
+[2025-02-05T15:09:20.847+0000] {logging_mixin.py:188} INFO - 15:09:20  3 of 5 WARN 50000 not_null_stg_credit_fraud_amount ............................. [WARN 50000 in 2.39s]
+[2025-02-05T15:09:20.851+0000] {logging_mixin.py:188} INFO - 15:09:20  4 of 5 START test not_null_stg_credit_fraud_risk_score ......................... [RUN]
+[2025-02-05T15:09:23.721+0000] {logging_mixin.py:188} INFO - 15:09:23  4 of 5 WARN 50226 not_null_stg_credit_fraud_risk_score ......................... [WARN 50226 in 2.87s]
+[2025-02-05T15:09:23.728+0000] {logging_mixin.py:188} INFO - 15:09:23  5 of 5 START test not_null_stg_credit_fraud_timestamp .......................... [RUN]
+[2025-02-05T15:09:24.991+0000] {logging_mixin.py:188} INFO - 15:09:24  5 of 5 PASS not_null_stg_credit_fraud_timestamp ................................ [PASS in 1.26s]
+[2025-02-05T15:09:25.010+0000] {logging_mixin.py:188} INFO - 15:09:25
+[2025-02-05T15:09:25.011+0000] {logging_mixin.py:188} INFO - 15:09:25  Finished running 5 tests in 0 hours 0 minutes and 7.83 seconds (7.83s).
+[2025-02-05T15:09:25.026+0000] {logging_mixin.py:188} INFO - 15:09:25
+[2025-02-05T15:09:25.027+0000] {logging_mixin.py:188} INFO - 15:09:25  Completed with 3 warnings:
+[2025-02-05T15:09:25.028+0000] {logging_mixin.py:188} INFO - 15:09:25
+[2025-02-05T15:09:25.029+0000] {logging_mixin.py:188} INFO - 15:09:25  Warning in test locations (models/staging/credit_fraud/schema.yml)
+[2025-02-05T15:09:25.030+0000] {logging_mixin.py:188} INFO - 15:09:25  Got 1 result, configured to warn if != 0
+[2025-02-05T15:09:25.031+0000] {logging_mixin.py:188} INFO - 15:09:25
+[2025-02-05T15:09:25.032+0000] {logging_mixin.py:188} INFO - 15:09:25    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/locations.sql
+[2025-02-05T15:09:25.033+0000] {logging_mixin.py:188} INFO - 15:09:25
+[2025-02-05T15:09:25.034+0000] {logging_mixin.py:188} INFO - 15:09:25  Warning in test not_null_stg_credit_fraud_amount (models/staging/credit_fraud/schema.yml)
+[2025-02-05T15:09:25.035+0000] {logging_mixin.py:188} INFO - 15:09:25  Got 50000 results, configured to warn if != 0
+[2025-02-05T15:09:25.036+0000] {logging_mixin.py:188} INFO - 15:09:25
+[2025-02-05T15:09:25.037+0000] {logging_mixin.py:188} INFO - 15:09:25    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_amount.sql
+[2025-02-05T15:09:25.038+0000] {logging_mixin.py:188} INFO - 15:09:25
+[2025-02-05T15:09:25.039+0000] {logging_mixin.py:188} INFO - 15:09:25  Warning in test not_null_stg_credit_fraud_risk_score (models/staging/credit_fraud/schema.yml)
+[2025-02-05T15:09:25.040+0000] {logging_mixin.py:188} INFO - 15:09:25  Got 50226 results, configured to warn if != 0
+[2025-02-05T15:09:25.041+0000] {logging_mixin.py:188} INFO - 15:09:25
+[2025-02-05T15:09:25.042+0000] {logging_mixin.py:188} INFO - 15:09:25    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_risk_score.sql
+[2025-02-05T15:09:25.043+0000] {logging_mixin.py:188} INFO - 15:09:25
+[2025-02-05T15:09:25.044+0000] {logging_mixin.py:188} INFO - 15:09:25  Done. PASS=2 WARN=3 ERROR=0 SKIP=0 TOTAL=5
+[2025-02-05T15:09:27.928+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T15:09:27.963+0000] {local.py:494} INFO - Inlets: [Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.agg_locations_risk_score', extra=None), Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.stg_credit_fraud', extra=None)]
+[2025-02-05T15:09:27.964+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T15:09:27.964+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T15:09:27.965+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T15:09:27.980+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_credit_fraud to None, run_after=None
+[2025-02-05T15:09:28.010+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T15:09:28.027+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_credit_fraud, task_id=model_credit_fraud.***_test, run_id=manual__2025-02-04T00:00:00+00:00, execution_date=20250204T000000, start_date=20250205T150913, end_date=20250205T150928
+[2025-02-05T15:09:28.066+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T15:09:28.081+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T15:09:28.083+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-02-05T16:47:25.443+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-05T16:47:25.459+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T16:47:25.469+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T16:47:25.469+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-05T16:47:25.480+0000] {taskinstance.py:2330} INFO - Executing <Task(DbtTestLocalOperator): model_credit_fraud.localiza_dw_test> on 2025-02-04 00:00:00+00:00
+[2025-02-05T16:47:25.486+0000] {standard_task_runner.py:63} INFO - Started process 339 to run task
+[2025-02-05T16:47:25.489+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_dbt-model_credit_fraud', 'model_credit_fraud.localiza_dw_test', 'manual__2025-02-04T00:00:00+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/dag_dbt-model_fraud_credit.py', '--cfg-path', '/tmp/tmpq2ded4_4']
+[2025-02-05T16:47:25.490+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask model_credit_fraud.localiza_dw_test
+[2025-02-05T16:47:25.537+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_dbt-model_credit_fraud.model_credit_fraud.localiza_dw_test manual__2025-02-04T00:00:00+00:00 [running]> on host 584eb3626689
+[2025-02-05T16:47:25.630+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_dbt-model_credit_fraud' AIRFLOW_CTX_TASK_ID='model_credit_fraud.localiza_dw_test' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-04T00:00:00+00:00'
+[2025-02-05T16:47:25.633+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-05T16:47:27.881+0000] {local.py:220} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-02-05T16:47:27.883+0000] {local.py:436} INFO - Cloning project to writable temp directory /tmp/tmp1m2hm2_s from /usr/local/airflow/dags/dbt/localiza_dw
+[2025-02-05T16:47:27.893+0000] {local.py:447} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/dag_dbt-model_credit_fraud__model_credit_fraud/target/partial_parse.msgpack
+[2025-02-05T16:47:27.899+0000] {config.py:348} INFO - Profile caching is enable.
+[2025-02-05T16:47:27.907+0000] {base.py:84} INFO - Using connection ID '***' for task execution.
+[2025-02-05T16:47:27.910+0000] {config.py:328} INFO - Profile found in cache using profile: /tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211/profiles.yml.
+[2025-02-05T16:47:27.910+0000] {local.py:408} INFO - Trying to run dbtRunner with:
+ ['test', '--select', 'path:models/staging/credit_fraud path:models/marts/credit_fraud path:snapshots/credit_fraud', '--project-dir', '/tmp/tmp1m2hm2_s', '--profiles-dir', '/tmp/cosmos/profile/bdc35343eb23031ee554202b16407e794194afcc614f7ea62bc658c63495a211', '--profile', '***', '--target', 'prod']
+ in /tmp/tmp1m2hm2_s
+[2025-02-05T16:47:27.926+0000] {logging_mixin.py:188} INFO - 16:47:27  Running with dbt=1.6.1
+[2025-02-05T16:47:28.036+0000] {logging_mixin.py:188} INFO - 16:47:28  Registered adapter: postgres=1.6.1
+[2025-02-05T16:47:28.700+0000] {logging_mixin.py:188} INFO - 16:47:28  Found 5 models, 1 snapshot, 4 seeds, 5 tests, 3 sources, 0 exposures, 0 metrics, 349 macros, 0 groups, 0 semantic models
+[2025-02-05T16:47:28.723+0000] {logging_mixin.py:188} INFO - 16:47:28
+[2025-02-05T16:47:28.782+0000] {logging_mixin.py:188} INFO - 16:47:28  Concurrency: 1 threads (target='prod')
+[2025-02-05T16:47:28.784+0000] {logging_mixin.py:188} INFO - 16:47:28
+[2025-02-05T16:47:28.788+0000] {logging_mixin.py:188} INFO - 16:47:28  1 of 5 START test locations .................................................... [RUN]
+[2025-02-05T16:47:28.840+0000] {logging_mixin.py:188} INFO - 16:47:28  1 of 5 PASS locations .......................................................... [PASS in 0.05s]
+[2025-02-05T16:47:28.844+0000] {logging_mixin.py:188} INFO - 16:47:28  2 of 5 START test locations .................................................... [RUN]
+[2025-02-05T16:47:29.919+0000] {logging_mixin.py:188} INFO - 16:47:29  2 of 5 WARN 1 locations ........................................................ [WARN 1 in 1.07s]
+[2025-02-05T16:47:29.923+0000] {logging_mixin.py:188} INFO - 16:47:29  3 of 5 START test not_null_stg_credit_fraud_amount ............................. [RUN]
+[2025-02-05T16:47:32.443+0000] {logging_mixin.py:188} INFO - 16:47:32  3 of 5 WARN 50000 not_null_stg_credit_fraud_amount ............................. [WARN 50000 in 2.52s]
+[2025-02-05T16:47:32.445+0000] {logging_mixin.py:188} INFO - 16:47:32  4 of 5 START test not_null_stg_credit_fraud_risk_score ......................... [RUN]
+[2025-02-05T16:47:35.311+0000] {logging_mixin.py:188} INFO - 16:47:35  4 of 5 WARN 50226 not_null_stg_credit_fraud_risk_score ......................... [WARN 50226 in 2.86s]
+[2025-02-05T16:47:35.314+0000] {logging_mixin.py:188} INFO - 16:47:35  5 of 5 START test not_null_stg_credit_fraud_timestamp .......................... [RUN]
+[2025-02-05T16:47:36.354+0000] {logging_mixin.py:188} INFO - 16:47:36  5 of 5 PASS not_null_stg_credit_fraud_timestamp ................................ [PASS in 1.04s]
+[2025-02-05T16:47:36.372+0000] {logging_mixin.py:188} INFO - 16:47:36
+[2025-02-05T16:47:36.374+0000] {logging_mixin.py:188} INFO - 16:47:36  Finished running 5 tests in 0 hours 0 minutes and 7.65 seconds (7.65s).
+[2025-02-05T16:47:36.386+0000] {logging_mixin.py:188} INFO - 16:47:36
+[2025-02-05T16:47:36.387+0000] {logging_mixin.py:188} INFO - 16:47:36  Completed with 3 warnings:
+[2025-02-05T16:47:36.388+0000] {logging_mixin.py:188} INFO - 16:47:36
+[2025-02-05T16:47:36.389+0000] {logging_mixin.py:188} INFO - 16:47:36  Warning in test locations (models/staging/credit_fraud/schema.yml)
+[2025-02-05T16:47:36.390+0000] {logging_mixin.py:188} INFO - 16:47:36  Got 1 result, configured to warn if != 0
+[2025-02-05T16:47:36.391+0000] {logging_mixin.py:188} INFO - 16:47:36
+[2025-02-05T16:47:36.392+0000] {logging_mixin.py:188} INFO - 16:47:36    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/locations.sql
+[2025-02-05T16:47:36.393+0000] {logging_mixin.py:188} INFO - 16:47:36
+[2025-02-05T16:47:36.394+0000] {logging_mixin.py:188} INFO - 16:47:36  Warning in test not_null_stg_credit_fraud_amount (models/staging/credit_fraud/schema.yml)
+[2025-02-05T16:47:36.395+0000] {logging_mixin.py:188} INFO - 16:47:36  Got 50000 results, configured to warn if != 0
+[2025-02-05T16:47:36.396+0000] {logging_mixin.py:188} INFO - 16:47:36
+[2025-02-05T16:47:36.397+0000] {logging_mixin.py:188} INFO - 16:47:36    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_amount.sql
+[2025-02-05T16:47:36.397+0000] {logging_mixin.py:188} INFO - 16:47:36
+[2025-02-05T16:47:36.398+0000] {logging_mixin.py:188} INFO - 16:47:36  Warning in test not_null_stg_credit_fraud_risk_score (models/staging/credit_fraud/schema.yml)
+[2025-02-05T16:47:36.399+0000] {logging_mixin.py:188} INFO - 16:47:36  Got 50226 results, configured to warn if != 0
+[2025-02-05T16:47:36.400+0000] {logging_mixin.py:188} INFO - 16:47:36
+[2025-02-05T16:47:36.402+0000] {logging_mixin.py:188} INFO - 16:47:36    compiled Code at target/compiled/***/models/staging/credit_fraud/schema.yml/not_null_stg_credit_fraud_risk_score.sql
+[2025-02-05T16:47:36.403+0000] {logging_mixin.py:188} INFO - 16:47:36
+[2025-02-05T16:47:36.403+0000] {logging_mixin.py:188} INFO - 16:47:36  Done. PASS=2 WARN=3 ERROR=0 SKIP=0 TOTAL=5
+[2025-02-05T16:47:37.154+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v10.json is above dbt-ol supported version 7. This might cause errors.
+[2025-02-05T16:47:37.196+0000] {local.py:494} INFO - Inlets: [Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.agg_locations_risk_score', extra=None), Dataset(uri='postgres://postgres-db:5432/localiza_dw.dm_credit_operations.stg_credit_fraud', extra=None)]
+[2025-02-05T16:47:37.196+0000] {local.py:495} INFO - Outlets: []
+[2025-02-05T16:47:37.197+0000] {local.py:595} INFO - Assigning inlets/outlets without DatasetAlias
+[2025-02-05T16:47:37.197+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-02-05T16:47:37.211+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_dbt-model_credit_fraud to None, run_after=None
+[2025-02-05T16:47:37.243+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-05T16:47:37.264+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_dbt-model_credit_fraud, task_id=model_credit_fraud.***_test, run_id=manual__2025-02-04T00:00:00+00:00, execution_date=20250204T000000, start_date=20250205T164725, end_date=20250205T164737
+[2025-02-05T16:47:37.321+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-02-05T16:47:37.335+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T16:47:37.337+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
