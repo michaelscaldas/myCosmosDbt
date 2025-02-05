@@ -34,7 +34,7 @@ Temas abordados:
    ```
 4. **Copie o arquivo csv do desafio para pasta:**  
    ```bash
-   cp -r <repositorio_atual_do_csv> csv
+   cp -r <endereco_atual_do_csv> csv/raw_fraud_credit.csv
    ```
 
 3. **Suba os contêineres com Docker Compose:**  
