@@ -5,4 +5,9 @@ dags/__pycache__/
 dags/dbt/logs/
 dags/logs/
 .idea/
+# Ignorar arquivo csv do desafio
 csv/*.csv
+# Ignorar todos os arquivos de log
+*.log
+# Ignorar diretórios específicos de logs
+logs/
