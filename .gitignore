@@ -5,4 +5,4 @@ dags/__pycache__/
 dags/dbt/logs/
 dags/logs/
 .idea/
-csv/*.csv  # Ignore all csv files in the csv directory
+csv/*.csv
