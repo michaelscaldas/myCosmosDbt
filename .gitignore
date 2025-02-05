@@ -12,7 +12,7 @@ tmp/
 __pycache__/
 *.pyc
 
-# Dados e arquivos CSV
+# Ignorar arquivo csv do desafio
 csv/*.csv
 
 # Configuração de IDEs e editores de texto
@@ -27,5 +27,3 @@ csv/*.csv
 
 dags/__pycache__/
 dags/dbt/logs/
-# Ignorar arquivo csv do desafio
-csv/*.csv
