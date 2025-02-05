@@ -1,13 +1,32 @@
-.git
+
+# Logs e arquivos temporários
+*.log
+logs/
+dags/logs/
+tmp/
+*.tmp
+*.swp
+*.bak
+
+# Python
+__pycache__/
+*.pyc
+
+# Dados e arquivos CSV
+*.csv
+csv/
+
+# Configuração de IDEs e editores de texto
+.vscode/
+.idea/
+.DS_Store
+
+# Arquivos sensíveis
 .env
-.DS_Store # macOS specific ignore
+*.key
+*.pem
+
 dags/__pycache__/
 dags/dbt/logs/
-dags/logs/
-.idea/
 # Ignorar arquivo csv do desafio
 csv/*.csv
-# Ignorar todos os arquivos de log
-*.log
-# Ignorar diretórios específicos de logs
-logs/
